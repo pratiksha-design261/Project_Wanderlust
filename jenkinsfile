@@ -1,0 +1,131 @@
+@Library('Shared') _
+pipeline {
+    agent any
+
+    parameters {
+        string(name: Frontend_Docke_Image_tag, default: '', description: 'This tag is used to push latest frontend image')
+        string(name: Backend_Docke_Image_tag, default: '', description: 'This tag is used to push latest backend image')
+        string(name: DockerUserName, default: '', desciption: 'This the username for docker hub')
+    }
+
+    stages {
+        stage('Validate Parameters') {
+            steps {
+                script {
+                    if (params.Frontend_Docke_Image_tag == '' || params.Backend_Docke_Image_tag == '' || params.DockDockerUserName) {
+                        error('Frontend_Docke_Image_tag, Backend_Docke_Image_tag and DockerUserName parameters are mandatory')
+                    }
+                }
+            }
+        }
+
+        stage('Workspace CleanUp') {
+            step {
+                script {
+                    cleanWs()
+                }
+            }
+        }
+
+        stage('Git: Code Checkout') {
+            steps {
+                script {
+                    git_checkout('','main')
+                }
+            }
+        }
+
+        stage('Trivy scan') {
+            steps {
+                script {
+                    Trivy_scan()
+                }
+            }
+        }
+
+        stage('OWASP Dependency check') {
+            steps {
+                script {
+                    OWASP_DC()
+                }
+            }
+        }
+
+        stage('SonarQube: Code Analysis ') {
+            steps {
+                script {
+                    sonarQube_code_Analysis('','','')
+                }
+
+            }
+        }
+
+        stage('SonarQube: Quality Gate') {
+            steps {
+                script {
+                    sonar_quality_gate()
+                }
+            }
+        }
+
+        stage('Exporting Environment Variable') {
+            parallel {
+                stage('Update Backend Environment') {
+                    steps {
+                        stage {
+                            dir(Automations) {
+                                sh 'bash updateBackendNew.sh'
+                            }
+                        }
+                    }
+                }
+                stage('Update Frontend Environment') {
+                    steps {
+                        stage {
+                            dir(Automations) {
+                                sh 'bash updateFrontendNew.sh'
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+        stage('Docker: Build Image') {
+            steps {
+                script {
+                    dir(backend) {
+                        docker_build(${params.DockerUserName}, 'Wanderlust-backend-image', ${params.Backend_Docke_Image_tag})
+                    }
+
+                    dir(frontend) {
+                        docker_build(${params.DockerUserName}, 'Wanderlust-backend-image', ${params.Frontend_Docke_Image_tag})
+                    }
+                }
+            }
+        }
+
+        stage('Docker: Push image toDockerHub') {
+            steps {
+                stage {
+                    script {
+                        docker_push($(params.DockerUserName), 'Wanderlust-backend-image', ${params.Backend_Docke_Image_tag})
+                        docker_push(${params.DockerUserName}, 'Wanderlust-backend-image', ${params.Frontend_Docke_Image_tag})
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            archiveArtifacts artifacts: '*.xml', followSymlinks: false
+            build job: 'Wanderlust-CD', parameters: [
+                string(name: 'FRONTEND_DOCKER_TAG', value: "${Frontend_Docke_Image_tag}")
+                string(name: 'BACKEND_DOCKER_TAG', value: "${Backend_Docke_Image_tag}")
+            ]
+        }
+    }
+}

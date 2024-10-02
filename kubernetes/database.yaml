@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-deloyment
+  namespace: wanderlust
+  labels:
+    app: mongdb-deployment-label
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb-servive-label
+  template:
+    metadata:
+      name: mongodb-pod
+      labels:
+        app: mongodb-servive-label
+    spec:
+      containers:
+        - name: mongodb-container
+          image: mongo
+          ports:
+            - containerPort: 27017
+          volumeMounts:
+            - name:  Mongo-storage
+              mountPath:  /data/db
+      volumes:
+        - name:  Mongo-storage
+          persistentVolumeClaim:
+          claimName: mongo-pvc
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service
+  namespace: wanderlust
+spec:
+  selector:
+    app: mongodb-servive-label
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 27017
+    targetPort: 27017
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

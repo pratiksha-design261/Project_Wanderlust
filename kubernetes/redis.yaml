@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+  namespace: wanderlst
+  lables:
+    app: redis-deployment-label
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-service-label
+  template:
+    metadata:
+      name: redis-pod
+      lables:
+        app: redis-service-label
+    spec:
+      containers:
+        - name: redis-container
+          image: redis
+          ports:
+            - containerPort: 6379
+          volumeMounts:
+            - name:  mongo-storage-redis
+              mountPath:  /var/lib/redis/dump.rdp
+      volumes:
+        - name:  mongo-storage-redis
+          persistentVolumeClaim:
+            claimName: mongo-pvc
+
+---
+
+apiVersion: v1
+kind: service
+metadata:
+  name:  redis-service
+  namespace: wanderlst
+spec:
+  selector:
+    app: redis-service-label
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+    

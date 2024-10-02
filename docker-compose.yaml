@@ -1,0 +1,60 @@
+version: "3.8"
+services:
+  
+  #This service will download mongo official image and also set volume so we will not lost data from DB 
+  mongodb:
+    container_name: "mongo-db-service"
+    image: mongo:latest
+    volumes:
+      - ./backend/data:/data
+    ports:
+      - "27017:27017"
+    networks:
+      - wanderlust-network
+
+  #This service will build image from Dockerfile available in frontend folder
+  frontend:
+    container_name: "frontend-service"
+    build: ./frontend
+    env_file:
+      - ./frontend/.env.docker
+    ports:
+      - "5173:5173"
+    networks:
+      - wanderlust-network
+
+  #This service will build image from Dockerfile available in backend folder
+  backend:
+    container_name: "backend-service"
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env.docker
+    ports:
+      - "31100:8080"
+    networks:
+      - wanderlust-network
+    depends_on:                                 # it willindicate that this service will start only mongodb is in running state 
+      - "mongodb"
+
+  #This service will download container from official images
+  redis:
+    container_name: "redis-service"
+    restart: "unless-stopped"                  #this service will autoatically restart until manually it stopped
+    image: redis:7.0.5-alpine
+    expose:
+      - 6379
+    networks:
+      - wanderlust-network
+    depends_on:                               # it willindicate that this service will start only mongodb is in running state 
+      - mongodb
+
+# its indicating that volume name data is created 
+volumes:
+  data:
+
+#Defined user defined network so all services will run in same network
+networks:
+  wanderlust-network:
+    driver: bridge

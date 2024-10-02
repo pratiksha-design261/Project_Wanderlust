@@ -1,0 +1,118 @@
+@library('Shared')_
+pipeline {
+    agent {label 'Node'}
+
+    parameters{
+        string(name: 'Frontend_Docker_tag', default: '', description: 'This docker tag will recieve input from CI pipeline for Frontend docker tag')
+        string(name: 'Backend_Docker_tag', default: '', description: 'This docker tag will recieve input from CI pipeline for backend docker tag')
+    }
+
+    stages {
+        stage('Workspace Cleanup') {
+            steps {
+                script {
+                    cleanWs()
+                }
+            }
+        }
+
+        stage('Git: Code Checkout') {
+            steps {
+                script {
+                    git_checkout('','main')
+                }
+            }
+        }
+
+        stage('Verify: Docker Iamge Tag') {
+            steps {
+                script {
+                    echo "FRONTEND DOCKER TAG: ${Frontend_Docker_tag}"
+                    echo "BACKEND DOCKER TAG: ${Backend_Docker_tag}"
+                }
+            }
+        }
+
+        stage('Update: Kubernetes Manifests') {
+            steps {
+                script {
+                    dir(kubernetes) {
+                        sh """
+                            sed -i -e s/wanderlust-backend-image.*/wanderlust-backend-image:${params.Backend_Docker_tag}/g backend.yaml
+                            sed -i -e s/wanderlust-frontend-image.*/wanderlust-frontend-image:${params.Frontend_Docker_tag}/g frontend.yaml
+                        """
+                    }
+                }
+            }
+        }
+
+        stage('Git: Upadte and push the code to Github') {
+            steps {
+
+                sh '''
+                    echo "checking github repository:"
+                    git status
+
+                    echo "adding modified file to git:"
+                    git add .
+
+                    echo "commiting changes:"
+                    git commit -m "Updated env variales"
+
+                    echo "Pushing changes to github:"
+                    git push <add origin url> main
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            script {
+                emailext attachLog: true,
+                from: 'pratiksha123dhotre@gmail.com',
+                subject: "Wanderlust project has been updaed and deployed - '${currentBuild.result}'",
+                body: """
+                    <html>
+                    <body>
+                        <div style="background-color: #FFA07A; padding: 10px; margin-bottom: 10px;">
+                            <p style="color: black; font-weight: bold;">Project: ${env.JOB_NAME}</p>
+                        </div>
+                        <div style="background-color: #90EE90; padding: 10px; margin-bottom: 10px;">
+                            <p style="color: black; font-weight: bold;">Build Number: ${env.BUILD_NUMBER}</p>
+                        </div>
+                        <div style="background-color: #87CEEB; padding: 10px; margin-bottom: 10px;">
+                            <p style="color: black; font-weight: bold;">URL: ${env.BUILD_URL}</p>
+                        </div>
+                    </body>
+                    </html>
+                """,
+
+                to: 'dhotrepratiksha123@gmail.com'
+                mailType: 'text/html'
+            }
+        }
+
+        failure {
+            script {
+                emailext attachlog: true,
+                from: 'pratiksha123dhotre@gmail.com',
+                subject: "Wanderlust project has been updaed and deployed - '${currentBuild.result}'",
+                body: """
+                    <html>
+                    <body>
+                        <div style="background-color: #FFA07A; padding: 10px; margin-bottom: 10px;">
+                            <p style="color: black; font-weight: bold;">Project: ${env.JOB_NAME}</p>
+                        </div>
+                        <div style="background-color: #90EE90; padding: 10px; margin-bottom: 10px;">
+                            <p style="color: black; font-weight: bold;">Build Number: ${env.BUILD_NUMBER}</p>
+                        </div>
+                    </body>
+                    </html>
+                """,
+                to: 'dhotrepratiksha123@gmail.com'
+                mailType: 'text/html'
+            }
+        }
+    }
+}

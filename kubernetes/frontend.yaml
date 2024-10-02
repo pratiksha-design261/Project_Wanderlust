@@ -1,0 +1,42 @@
+# create deployment with name frontend-deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  namespace: wanderlust
+  labels:
+    name:  frontend-deployment-label
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-service-label
+# Node template
+  template:
+    metadata:
+      name:  frontend-pod
+      labels:
+        app: frontend-service-label
+# Container specification
+    spec:
+      containers:
+        - name: frontend-container
+          image: pratiksha1999/wanderlust-frontend-image:v1.0
+          ports:
+            - containerPort: 5173
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name:  frontend-Service
+  namespace: wanderlust
+spec:
+  selector:
+    app:  frontend-service-label
+  type:  NodePort
+  ports:
+  - protocol:  TCP
+    port: 5173
+    targetPort: 5173
+    nodePort: 31000
