@@ -97,16 +97,24 @@ resource "aws_security_group" "tf_sg" {
 
     ingress {
     description = "Docker_frontend"
-    from_port = 5173
-    to_port = 5173
+    from_port = 31000
+    to_port = 31000
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
     ingress {
     description = "Docker_backend"
-    from_port = 8080
-    to_port = 8080
+    from_port = 31100
+    to_port = 31100
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+    ingress {
+    description = "Docker_database"
+    from_port = 27017
+    to_port = 27017
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
