@@ -164,7 +164,7 @@ resource "aws_lb" "tf_lb" {
 # create target group for load balancer on which port our application is running
 resource "aws_lb_target_group" "tf_sg_tg" {
   name     = "sg-tg"
-  port     = 80
+  port     = 31000
   protocol = "HTTP"
   vpc_id   = aws_vpc.tf_vpc.id
 
@@ -179,13 +179,13 @@ resource "aws_lb_target_group" "tf_sg_tg" {
 resource "aws_lb_target_group_attachment" "attach1" {
   target_group_arn = aws_lb_target_group.tf_sg_tg.arn
   target_id        = aws_instance.node_instance.id
-  port             = 80
+  port             = 31000
 }
 
 # A listener is a process that checks for connection requests based on the protocol and port defined. When a request is received, it forwards the traffic to the appropriate target group.
 resource "aws_lb_listener" "tf_listener" {
   load_balancer_arn = aws_lb.tf_lb.arn
-  port              = 80
+  port              = 31000
   protocol          = "HTTP"
 
   default_action {
