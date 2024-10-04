@@ -30,7 +30,7 @@ pipeline {
         stage('Git: Code Checkout') {
             steps {
                 script {
-                    git_checkout('','main')
+                    git_checkout('https://github.com/pratiksha-design261/Project_Wanderlust.git','master')
                 }
             }
         }
@@ -54,7 +54,7 @@ pipeline {
         stage('SonarQube: Code Analysis ') {
             steps {
                 script {
-                    sonarQube_code_Analysis('','','')
+                    sonarQube_code_Analysis('SonarQube','wanderlust_project_name','wnaderlust_project_key')
                 }
 
             }
