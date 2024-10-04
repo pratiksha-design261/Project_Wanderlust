@@ -19,7 +19,7 @@ pipeline {
         stage('Git: Code Checkout') {
             steps {
                 script {
-                    git_checkout('','main')
+                    git_checkout('https://github.com/pratiksha-design261/Project_Wanderlust.git','master')
                 }
             }
         }
@@ -60,7 +60,7 @@ pipeline {
                     git commit -m "Updated env variales"
 
                     echo "Pushing changes to github:"
-                    git push <add origin url> main
+                    git push https://github.com/pratiksha-design261/Project_Wanderlust.git master
                 '''
             }
         }
