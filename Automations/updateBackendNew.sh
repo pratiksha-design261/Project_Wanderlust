@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set instnace ID on which Argo CD is setup
-INSTANCE_ID=""
+INSTANCE_ID="i-08207742f70c49793"
 
 #Retrive public IP from the EC2 Instance 
 IPV4_address=$(aws ec2 describe-instance --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
