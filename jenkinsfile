@@ -1,6 +1,6 @@
 @Library('Shared') _   // shared name received from jenkins where we configured shared library 
 pipeline {
-    agent {label 'Node'}   // the code will run on node labelled machine 
+    agent any
 
     environment {
 
