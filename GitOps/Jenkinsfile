@@ -1,7 +1,8 @@
-@library('Shared')_
+@library('Shared') _
 pipeline {
-    agent {label 'Node'}
-
+    
+    agent any
+    
     parameters{
         string(name: 'Frontend_Docker_tag', default: '', description: 'This docker tag will recieve input from CI pipeline for Frontend docker tag')
         string(name: 'Backend_Docker_tag', default: '', description: 'This docker tag will recieve input from CI pipeline for backend docker tag')
