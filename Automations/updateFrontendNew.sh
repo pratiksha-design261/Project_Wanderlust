@@ -16,7 +16,7 @@ current_url=$(cat $env_file_path)
 # compare current url and updated url, if its diffrent update in env.docker file
 if [[ ${current_url} != ${Updated_FE_Url} ]]; then
     if [ -f $env_file_path ]; then
-        sed -i -e "s|VITE_API_PATH.*|${Updated_FE_Url}|g"$env_file_path
+        sed -i -e "s|VITE_API_PATH.*|${Updated_FE_Url}|g" $env_file_path
     else
         echo "Error: File not found"
     fi
