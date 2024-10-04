@@ -1,5 +1,5 @@
 #Get instance Id
-InstanceID="i-08207742f70c49793"
+InstanceID="i-009e42d1cb6e8fe69"
 
 #Get IP address from Instnace ID for frontend with instance id of EC2
 IPV4_ID_FE=$(aws ec2 describe-instances --instance-ids $InstanceID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
