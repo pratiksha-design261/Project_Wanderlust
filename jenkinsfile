@@ -1,6 +1,12 @@
-@Library('Shared') _
+@Library('Shared') _   // shared name received from jenkins where we configured shared library 
 pipeline {
-    agent any
+    agent {label 'Node'}   // the code will run on node labelled machine 
+
+    environment {
+
+        SONAR_HOME = tool 'Sonar-tool'
+
+    }
 
     parameters {
         string(name: Frontend_Docke_Image_tag, default: '', description: 'This tag is used to push latest frontend image')
