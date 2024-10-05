@@ -4,7 +4,7 @@
 INSTANCE_ID="i-009e42d1cb6e8fe69"
 
 #Retrive public IP from the EC2 Instance 
-IPV4_address=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text --region 'us-east-2')
+IPV4_address=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
 #aws ec2 describe-instances --instance-ids $INSTANCE_ID:This AWS CLI command queries information about an EC2 instance based on the instance ID stored in the variable $INSTANCE_ID.
 #--query 'Reservations[0].Instances[0].PublicIpAddress': The --query option is used to filter the specific information from the returned JSON structure.
 # Reservations[0] refers to the first reservation object in the response.
