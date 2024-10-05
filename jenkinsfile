@@ -98,6 +98,27 @@ pipeline {
             }
         }
 
+        stage('Commit updated code on github'{
+            steps {
+                script {
+                    sh "git add ."
+                    sh 'git commit -m ".env.docker files updated"'
+                    git_push('Project_Wanderlust','master')                       
+                }
+            }
+        
+
+
+        stage('Validate Updated data' {
+            steps {
+                script {
+                    dir('Automations') {
+                        sh "bash get_updtaed_data.sh"
+                    }
+                }
+            }
+        }
+
         stage('Docker: Build Image') {
             steps {
                 script {
