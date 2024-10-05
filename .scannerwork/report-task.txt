@@ -1,0 +1,6 @@
+projectKey=wnaderlust_project_key
+serverUrl=http://18.222.229.182:9000
+serverVersion=9.9.7.96285
+dashboardUrl=http://18.222.229.182:9000/dashboard?id=wnaderlust_project_key
+ceTaskId=AZJbqGCjAaf5jlrswVdD
+ceTaskUrl=http://18.222.229.182:9000/api/ce/task?id=AZJbqGCjAaf5jlrswVdD

