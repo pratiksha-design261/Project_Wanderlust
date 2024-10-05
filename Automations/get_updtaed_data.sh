@@ -7,4 +7,4 @@ echo "Backend : ${Current_url}"
 # Front end Updated data validate
 env_file_path="../frontend/.env.docker"
 current_url_1=$(cat $env_file_path)
-echo "FrontEnd: ${Current_url_1}"
+echo "FrontEnd: ${current_url_1}"
