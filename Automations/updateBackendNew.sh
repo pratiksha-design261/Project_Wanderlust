@@ -22,7 +22,7 @@ echo "${Updated_BE_Url}"
 
 #Store already present (old) frontend url in variable
 Current_url=$(sed -n "4p" $Env_file)
-echo "${Current_url}"
+echo "CU URL= ${Current_url}"
 
 #Check if both URL re same if not update new url to .env.docker file
 if [[ "${Current_url}" != "FRONTEND_URL=\"http://${ipv4_address}:5173\"" ]]; then
@@ -30,6 +30,7 @@ if [[ "${Current_url}" != "FRONTEND_URL=\"http://${ipv4_address}:5173\"" ]]; the
     if [ -f $Env_file ]; then                                                 # Checks if file is availabel on location
         echo "File available"
         sed -i -e "s|FRONTEND_URL.*|FRONTEND_URL=\"http://${IPV4_address}:5173\"|g" $Env_file
+        echo "File updated updated IP is ${Current_url}"
     else
         echo "Error: File Not Found."
     fi
