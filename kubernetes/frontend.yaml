@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: frontend-container
-          image: pratiksha1999/wanderlust-frontend-image:v25
+          image: pratiksha1999/wanderlust-frontend-image:v26
           ports:
             - containerPort: 5173
 
