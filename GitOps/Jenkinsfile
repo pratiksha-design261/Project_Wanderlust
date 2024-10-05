@@ -68,8 +68,7 @@ pipeline {
                         sh 'git commit -m "Updated env variales"'
 
                         echo "Pushing changes to github:"
-                        withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-                            sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/pratiksha-design261/Project_Wanderlust.git master"
+                        git_push('Project_Wanderlust','master')   
                         }
                 }
             }
