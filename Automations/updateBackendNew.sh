@@ -5,6 +5,7 @@ INSTANCE_ID="i-009e42d1cb6e8fe69"
 
 #Retrive public IP from the EC2 Instance 
 IPV4_address=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
+echo "${IPV4_address}"
 #aws ec2 describe-instances --instance-ids $INSTANCE_ID:This AWS CLI command queries information about an EC2 instance based on the instance ID stored in the variable $INSTANCE_ID.
 #--query 'Reservations[0].Instances[0].PublicIpAddress': The --query option is used to filter the specific information from the returned JSON structure.
 # Reservations[0] refers to the first reservation object in the response.
@@ -17,13 +18,17 @@ Env_file="../backend/.env.docker"
 
 # Updated URL
 Updated_BE_Url="FRONTEND_URL=\"http://${IPV4_address}:5173\""
+echo "${Updated_BE_Url}"
 
 #Store already present (old) frontend url in variable
 Current_url=$(sed -n "4p" $Env_file)
+echo "${Current_url}"
 
 #Check if both URL re same if not update new url to .env.docker file
 if [[ "${Current_url}" != "FRONTEND_URL=\"http://${ipv4_address}:5173\"" ]]; then
+    echo "Ips are not equal"
     if [ -f $Env_file ]; then                                                 # Checks if file is availabel on location
+        echo "File available"
         sed -i -e "s|FRONTEND_URL.*|FRONTEND_URL=\"http://${IPV4_address}:5173\"|g" $Env_file
     else
         echo "Error: File Not Found."
