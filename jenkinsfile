@@ -9,16 +9,16 @@ pipeline {
     }
 
     parameters {
-        string(name: Frontend_Docke_Image_tag, default: '', description: 'This tag is used to push latest frontend image')
-        string(name: Backend_Docke_Image_tag, default: '', description: 'This tag is used to push latest backend image')
-        string(name: DockerUserName, default: '', desciption: 'This the username for docker hub')
+        string(name: 'Frontend_Docke_Image_tag', defaultValue: '', description: 'This tag is used to push latest frontend image')
+        string(name: 'Backend_Docke_Image_tag', defaultValue: '', description: 'This tag is used to push latest backend image')
+        string(name: 'DockerUserName', defaultValue: '', description: 'This the username for docker hub')
     }
 
     stages {
         stage('Validate Parameters') {
             steps {
                 script {
-                    if (params.Frontend_Docke_Image_tag == '' || params.Backend_Docke_Image_tag == '' || params.DockDockerUserName) {
+                    if (params.Frontend_Docke_Image_tag == '' || params.Backend_Docke_Image_tag == '') {
                         error('Frontend_Docke_Image_tag, Backend_Docke_Image_tag and DockerUserName parameters are mandatory')
                     }
                 }
@@ -26,7 +26,7 @@ pipeline {
         }
 
         stage('Workspace CleanUp') {
-            step {
+            steps {
                 script {
                     cleanWs()
                 }
@@ -37,6 +37,7 @@ pipeline {
             steps {
                 script {
                     git_checkout('https://github.com/pratiksha-design261/Project_Wanderlust.git','master')
+                    sh "ls -l backend"
                 }
             }
         }
@@ -78,49 +79,48 @@ pipeline {
             parallel {
                 stage('Update Backend Environment') {
                     steps {
-                        stage {
-                            dir(Automations) {
-                                sh 'bash updateBackendNew.sh'
+                        script {
+                            dir("Automations") {
+                                sh "bash updateBackendNew.sh"
                             }
                         }
                     }
                 }
                 stage('Update Frontend Environment') {
                     steps {
-                        stage {
-                            dir(Automations) {
-                                sh 'bash updateFrontendNew.sh'
-                            }
+                        script {
+                            dir("Automations") {
+                                sh "bash updateFrontendNew.sh"
+                            } 
                         }
                     }
                 }
-
-
             }
         }
 
         stage('Docker: Build Image') {
             steps {
                 script {
-                    dir(backend) {
-                        docker_build(${params.DockerUserName}, 'Wanderlust-backend-image', ${params.Backend_Docke_Image_tag})
+                    dir("backend") {
+                        sh "ls -lrta"
+                        docker_build("${params.DockerUserName}", "wanderlust-backend-image", "${params.Backend_Docke_Image_tag}")
                     }
 
-                    dir(frontend) {
-                        docker_build(${params.DockerUserName}, 'Wanderlust-backend-image', ${params.Frontend_Docke_Image_tag})
+                    dir("frontend") {
+                        docker_build("${params.DockerUserName}", "wanderlust-frontend-image", "${params.Frontend_Docke_Image_tag}")
                     }
                 }
             }
         }
 
-        stage('Docker: Push image toDockerHub') {
+        stage('Docker: Push image to DockerHub') {
             steps {
-                stage {
-                    script {
-                        docker_push($(params.DockerUserName), 'Wanderlust-backend-image', ${params.Backend_Docke_Image_tag})
-                        docker_push(${params.DockerUserName}, 'Wanderlust-backend-image', ${params.Frontend_Docke_Image_tag})
-                    }
+                
+                script {
+                    docker_push("${params.DockerUserName}", "wanderlust-backend-image", "${params.Backend_Docke_Image_tag}")
+                    docker_push("${params.DockerUserName}", "wanderlust-frontend-image", "${params.Frontend_Docke_Image_tag}")
                 }
+                
             }
         }
     }
