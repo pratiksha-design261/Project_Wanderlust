@@ -22,9 +22,9 @@ Updated_BE_Url="FRONTEND_URL=\"http://${IPV4_address}:5173\""
 Current_url=$(sed -n "4p" $Env_file)
 
 #Check if both URL re same if not update new url to .env.docker file
-if [[ "${Current_url}" != "${Updated_BE_Url}" ]]; then
+if [[ "${Current_url}" != "FRONTEND_URL=\"http://${ipv4_address}:5173\"" ]]; then
     if [ -f $Env_file ]; then                                                 # Checks if file is availabel on location
-        sed -i -e "s|FRONTEND_URL.*|${Updated_BE_Url}|g" $Env_file
+        sed -i -e "s|FRONTEND_URL.*|FRONTEND_URL=\"http://${IPV4_address}:5173\"|g" $Env_file
     else
         echo "Error: File Not Found."
     fi
