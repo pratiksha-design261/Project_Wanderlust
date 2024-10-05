@@ -1,27 +1,43 @@
 #!/bin/bash
 
-# Set the Instance ID and path to the .env file
+# Set instnace ID on which Argo CD is setup
 INSTANCE_ID="i-009e42d1cb6e8fe69"
 
-# Retrieve the public IP address of the specified EC2 instance
-ipv4_address=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
-echo ${ipv4_address}
+#Retrive public IP from the EC2 Instance 
+IPV4_address=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
+#aws ec2 describe-instances --instance-ids $INSTANCE_ID:This AWS CLI command queries information about an EC2 instance based on the instance ID stored in the variable $INSTANCE_ID.
+#--query 'Reservations[0].Instances[0].PublicIpAddress': The --query option is used to filter the specific information from the returned JSON structure.
+# Reservations[0] refers to the first reservation object in the response.
+# Instances[0] refers to the first instance in that reservation.
+# PublicIpAddress retrieves the public IPv4 address of that EC2 instance.
+# --output text: This formats the output as plain text instead of JSON, making it easier to capture and assign to a variable.
 
-# Path to the .env file
-file_to_find="../backend/.env.docker"
+#Path to env file
+Env_file="../backend/.env.docker"
 
-# Check the current FRONTEND_URL in the .env file
-current_url=$(sed -n "4p" $file_to_find)
-echo "old URL ${current_url}"
+# Updated URL
+Updated_BE_Url="FRONTEND_URL=\"http://${IPV4_address}:5173\""
 
-# Update the .env file if the IP address has changed
-if [[ "$current_url" != "FRONTEND_URL=\"http://${ipv4_address}:5173\"" ]]; then
-    echo "Front end URL is diffrent"
-    if [ -f $file_to_find ]; then
-        echo "Files is available"
-        sed -i -e "s|FRONTEND_URL.*|FRONTEND_URL=\"http://${ipv4_address}:5173\"|g" $file_to_find
+#Store already present (old) frontend url in variable
+Current_url=$(sed -n "4p" $Env_file)
+
+#Check if both URL re same if not update new url to .env.docker file
+if [[ "${Current_url}" != "FRONTEND_URL=\"http://${ipv4_address}:5173\"" ]]; then
+    if [ -f $Env_file ]; then                                                 # Checks if file is availabel on location
+        sed -i -e "s|FRONTEND_URL.*|FRONTEND_URL=\"http://${IPV4_address}:5173\"|g" $Env_file
     else
-        echo "ERROR: File not found."
+        echo "Error: File Not Found."
     fi
-    echo "Front end URL is diffrent"
 fi
+
+
+# sed -i -e:
+
+# sed: Stream editor used to perform basic text transformations on an input stream (a file in this case).
+# -i: This flag tells sed to modify the file "in-place," meaning the changes are directly applied to the file ($Env_file).
+# -e: Allows specifying a script for the sed command.
+# s|FRONTEND_URL.*|${Updated_FE_Url}|g:
+
+# s|...|...|g: This is the sed substitution command. The s stands for substitute, and the g at the end ensures it performs a global replacement on each line.
+# FRONTEND_URL.*: This is a regular expression that matches FRONTEND_URL followed by anything (.* matches any sequence of characters).
+# ${Updated_FE_Url}: This is the replacement value, which is the content of the Updated_FE_Url variable. It contains the new FRONTEND_URL="http://<IPv4_Address>:5173" string.

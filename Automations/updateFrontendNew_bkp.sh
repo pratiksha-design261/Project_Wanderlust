@@ -5,18 +5,23 @@ INSTANCE_ID="i-009e42d1cb6e8fe69"
 
 # Retrieve the public IP address of the specified EC2 instance
 ipv4_address=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
+echo ${ipv4_address}
 
 # Path to the .env file
-file_to_find="../frontend/.env.docker"
+file_to_find="../backend/.env.docker"
 
-# Check the current VITE_API_PATH in the .env file
-current_url=$(cat $file_to_find)
+# Check the current FRONTEND_URL in the .env file
+current_url=$(sed -n "4p" $file_to_find)
+echo "old URL ${current_url}"
 
 # Update the .env file if the IP address has changed
-if [[ "$current_url" != "VITE_API_PATH=\"http://${ipv4_address}:31100\"" ]]; then
+if [[ "$current_url" != "FRONTEND_URL=\"http://${ipv4_address}:5173\"" ]]; then
+    echo "Front end URL is diffrent"
     if [ -f $file_to_find ]; then
-        sed -i -e "s|VITE_API_PATH.*|VITE_API_PATH=\"http://${ipv4_address}:31100\"|g" $file_to_find
+        echo "Files is available"
+        sed -i -e "s|FRONTEND_URL.*|FRONTEND_URL=\"http://${ipv4_address}:5173\"|g" $file_to_find
     else
         echo "ERROR: File not found."
     fi
+    echo "Front end URL is diffrent"
 fi
